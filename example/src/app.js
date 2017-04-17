@@ -43,7 +43,7 @@ export default class App extends Component {
           data={ this.state.data }
           onChange={ this.handleChange }
           placeholder="Search for a string..."
-          class="searcclass"
+          class="search-class"
           searchKey="full_name"
         />
       </div>

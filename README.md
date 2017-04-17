@@ -1,28 +1,60 @@
-# Boilerplate for creating React Npm packages with ES2015
+React-Search-Box
+============
 
-The package is based on [npm-base](https://github.com/kadirahq/npm-base) package by [Kadira](https://github.com/kadirahq) which is really great when you want to prepare Npm package. This one is prepared to be used as a starter point for React components which needs to be published on Npm.
+An autocomplete search box built with and for [React](http://facebook.github.io/react/index.html).
 
-It includes linting with [ESLint](http://eslint.org/) and testing with [Mocha](https://mochajs.org/), [Enzyme](http://airbnb.io/enzyme/) and [JSDOM](https://github.com/tmpvar/jsdom).
 
-Also there is of course ES6 transpilation.
+## Demo & Examples
+
+![React-Search-Box](react-search-box.png)
+
+Clone this repo then run:
+
+```javascript
+cd example
+npm install
+npm start
+```
+
+Then open [`localhost:3000`](http://localhost:3000) in a browser.
+
+
+## Installation
+
+The easiest way to use React-Search-Box is to install it from NPM and include it in your own React build process (using [Browserify](http://browserify.org), etc).
+
+```javascript
+npm install react-search-box --save
+```
+
+At this point you can import react-search-box and its styles in your application as follows:
+
+```js
+import Search from 'react-search-box';
+```
+
 
 ## Usage
 
-1. Clone this repo
-2. Inside cloned repo run `npm install && rm -rf .git && git init` and update `package.json` with your package name.
-3. If you want to run tests: `npm test` or `npm run testonly` or `npm run test-watch`. You need to write tests in `__tests__` folder. You need at least Node 4 on your machine to run tests.
-4. If you want to run linting: `npm test` or `npm run lint`. Fix bugs: `npm run lint-fix`. You can adjust your `.eslintrc` config file.
-5. If you want to run transpilation to ES5 in `dist` folder: `npm run prepublish` (standard npm hook).
+React-Search-Box can also listen for changes with the `onChange` event property.
 
-## Blog post about it:
+The 'data' property should be provided as an `Array`.
+The `placeholder` property of each option should be set to either a string or a number.
+The `searchKey` property of each option should be set to either a string or a number. It is the key that the search box will use for while iterating over your array of objects.
 
-- [Creating React NPM packages with ES2015](http://julian.io/creating-react-npm-packages-with-es2015/)
+Have a look at the [`example/src/app.js`](https://github.com/ghoshnirmalya/react-search-box/blob/master/example/src/app.js) file for more details.
 
-## Also check out
 
-- [React Alert UI component](https://github.com/juliancwirko/react-s-alert)
-- [React project boilerplate with Webpack, HMR, React Router](https://github.com/juliancwirko/react-boilerplate)
+### Custom classNames
 
-## License
+You can provide a custom `class` prop to the `<Search>` component, for custom styling.
 
-MIT
+
+# Contributing
+
+All sorts of contributions are welcome.
+
+
+# License
+
+MIT Licensed. Copyright (c) Nirmalya Ghosh 2017.
