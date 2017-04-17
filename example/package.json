@@ -2,7 +2,11 @@
   "name": "example",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://myname.github.io/myapp",
   "devDependencies": {
+    "classnames": "^2.2.5",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "react-scripts": "0.9.5"
   },
   "dependencies": {
