@@ -1,6 +1,6 @@
 {
   "name": "react-search-box",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "An autocomplete search box for ReactJS.",
   "repository": {
     "type": "git",

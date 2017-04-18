@@ -6,6 +6,8 @@ An autocomplete search box built with and for [React](http://facebook.github.io/
 
 ## Demo & Examples
 
+[**Demo**](https://ghoshnirmalya.github.io/react-search-box/)
+
 ![React-Search-Box](react-search-box.png)
 
 Clone this repo then run:
