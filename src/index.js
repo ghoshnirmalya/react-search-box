@@ -2,10 +2,27 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _filter from 'lodash/filter';
 import classNames from 'classnames';
+import styled from 'styled-components';
 
 import Dropdown from './dropdown';
 
-import './styles.css';
+const InputWrapper = styled.input`
+  &.input {
+    border: 1px solid #f1f1f1;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    outline: 0;
+    width: 100%;
+    box-sizing: border-box;
+
+    &--show-dropdown {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+`;
 
 export default class Search extends Component {
   constructor() {
@@ -95,7 +112,7 @@ export default class Search extends Component {
         }) }
       >
         <div className="search__input">
-          <input
+          <InputWrapper
             type="text"
             className={ classNames({
               input: true,

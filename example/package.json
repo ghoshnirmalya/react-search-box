@@ -11,7 +11,7 @@
     "react-scripts": "0.9.5"
   },
   "dependencies": {
-    "react-search-box": "0.0.4"
+    "react-search-box": "^0.0.10"
   },
   "scripts": {
     "start": "react-scripts start",
