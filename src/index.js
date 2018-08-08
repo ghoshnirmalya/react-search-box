@@ -51,24 +51,29 @@ export default class Search extends Component {
   };
 
   handleChange(e) {
-    if (e.target.value.trim()) {
-      let matchedData = this.getValueByKey(e.target.value.trim(), this.props.data);
+    let { data } = this.props;
+    let value = e.target.value;
+
+    if (value.trim()) {
+      let matchedData = this.getValueByKey(value.trim(), data);
 
       this.setState({
         matchedData,
-        value: e.target.value,
+        value: value,
         showDropdown: true
       });
     } else {
       this.setState({
-        value: e.target.value,
+        value: value,
         showDropdown: false
       });
     }
   }
 
   getValueByKey(key, array) {
-    if (this.props.exactSearch) {
+    let { exactSearch } = this.props;
+
+    if (exactSearch) {
       return this.exactSearchQuery(key, array);
     }
 
@@ -76,16 +81,16 @@ export default class Search extends Component {
   }
 
   exactSearchQuery(key, array) {
-    let _this = this;
+    let { searchKey } = this.props;
 
-    return _filter(array, { [`${_this.props.searchKey}`]: key });
+    return _filter(array, { [`${searchKey}`]: key });
   }
 
   fuzzySearchQuery(key, array) {
-    let _this = this;
+    let { searchKey } = this.props;
 
     return _filter(array, (item) => {
-      let searchableItem = item[`${_this.props.searchKey}`].toString();
+      let searchableItem = item[`${searchKey}`].toString();
       if (searchableItem.indexOf(key) !== -1) {
         return searchableItem;
       }
@@ -93,22 +98,33 @@ export default class Search extends Component {
   }
 
   handleSetValue(value) {
+    let { onChange } = this.props;
+
     this.setState({
       value: value.target.innerText,
       showDropdown: false
     }, () => {
-      if (this.props.onChange) {
-        this.props.onChange(this.state.value);
+      if (onChange) {
+        onChange(this.state.value);
       }
     });
   }
 
   render() {
+    const { propClass, placeholder } = this.props;
+    const { showDropdown, value, matchedData, searchKey } = this.state;
+    const handleSetValue = (value) => {
+      this.handleSetValue(value);
+    }
+    const handleChange = (value) => {
+      this.handleChange(value);
+    }
+      
     return (
       <div
         className={ classNames({
           search: true,
-          [this.props.class]: !this.props.class ? false : true
+          [propClass]: !propClass ? false : true
         }) }
       >
         <div className="search__input">
@@ -116,19 +132,19 @@ export default class Search extends Component {
             type="text"
             className={ classNames({
               input: true,
-              'input--show-dropdown': this.state.showDropdown
+              'input--show-dropdown': showDropdown
             }) }
-            placeholder={ this.props.placeholder }
-            onChange={ this.handleChange.bind(this) }
-            value={ this.state.value }
+            placeholder={ placeholder }
+            onChange={ handleChange }
+            value={ value }
           />
         </div>
         <div className="search__dropdown">
           <Dropdown
-            data={ this.state.matchedData }
-            onClick={ this.handleSetValue.bind(this) }
-            show={ this.state.showDropdown }
-            searchKey={ this.props.searchKey }
+            data={ matchedData }
+            onClick={ handleSetValue }
+            show={ showDropdown }
+            searchKey={ searchKey }
           />
         </div>
       </div>
