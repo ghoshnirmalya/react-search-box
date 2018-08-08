@@ -44,6 +44,7 @@ export default class Dropdown extends Component {
   };
 
   listNode() {
+    const { searchKey, onClick, show } = this.props;
     return (
       <ul className="dropdown__ul">
         { this.props.data.map((list, index) => {
@@ -51,18 +52,18 @@ export default class Dropdown extends Component {
             <li
               key={ index }
               className="dropdown__ul__li"
-              onClick={ this.props.onClick.bind(list[`${this.props.searchKey}`]) }
+              onClick={ onClick(list[`${searchKey}`]) }
             >
-              { list[`${this.props.searchKey}`] }
+              { list[`${searchKey}`] }
             </li>
           );
         })}
-        </ul>
+      </ul>
     );
   }
 
   render() {
-    if (!this.props.show) {
+    if (!show) {
       return false;
     }
 

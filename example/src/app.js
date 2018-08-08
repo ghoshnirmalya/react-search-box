@@ -33,6 +33,12 @@ export default class App extends Component {
   }
 
   render() {
+    const { data } = this.props
+
+    const handleChange = (value) => {
+      this.handleChange(value);
+    }
+
     if (this.state.loading) {
       return (
         <div className="app__loading">Loading...</div>
@@ -56,8 +62,8 @@ export default class App extends Component {
             </div>
             <div className="search__component">
               <Search
-                data={ this.state.data }
-                onChange={ this.handleChange.bind(this) }
+                data={ data }
+                onChange={ handleChange }
                 placeholder="Search for a string..."
                 class="search-class"
                 searchKey="full_name"
