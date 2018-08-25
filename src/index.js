@@ -1,137 +1,113 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import _filter from 'lodash/filter';
-import classNames from 'classnames';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import Downshift from "downshift";
+import styled from "styled-components";
 
-import Dropdown from './dropdown';
-
-const InputWrapper = styled.input`
-  &.input {
-    border: 1px solid #f1f1f1;
-    border-radius: 3px;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: 400;
-    outline: 0;
-    width: 100%;
-    box-sizing: border-box;
-
-    &--show-dropdown {
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-  }
-`;
-
-export default class Search extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      matchedData: [],
-      value: '',
-      showDropdown: false
-    };
-  }
-
-  static propTypes = {
-    placeholder: PropTypes.string,
-    exactSearch: PropTypes.bool,
-    onChange: PropTypes.func,
-    class: PropTypes.string,
-    searchKey: PropTypes.string
-  };
-
+class Select extends Component {
   static defaultProps = {
-    placeholder: 'Search...',
-    data: [],
-    exactSearch: false,
-    class: ''
+    width: 250,
+    height: 30
   };
 
-  handleChange(e) {
-    if (e.target.value.trim()) {
-      let matchedData = this.getValueByKey(e.target.value.trim(), this.props.data);
+  static StyledContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+  `;
 
-      this.setState({
-        matchedData,
-        value: e.target.value,
-        showDropdown: true
-      });
-    } else {
-      this.setState({
-        value: e.target.value,
-        showDropdown: false
-      });
+  static StyledLabel = styled.label`
+    margin-bottom: 5px;
+  `;
+
+  static StyledInput = styled.input`
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    height: ${props => props.height}px;
+    width: ${props => props.width}px;
+    border-radius: 2px;
+    font-size: inherit;
+    padding: 5px 10px;
+    background-color: ${props => (props.disabled ? "#eee" : "transparent")};
+  `;
+
+  static StyledMenu = React.forwardRef((props, ref) => (
+    <Select.StyledUl innerRef={ref} {...props} />
+  ));
+
+  static StyledUl = styled.ul`
+    box-sizing: border-box;
+    width: ${props => props.width}px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  `;
+
+  static StyledLi = styled.li`
+    box-sizing: border-box;
+    height: ${props => props.height}px;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+
+    &:not(:first-child) {
+      border-top: 0;
+      display: flex;
+      align-items: center;
     }
-  }
-
-  getValueByKey(key, array) {
-    if (this.props.exactSearch) {
-      return this.exactSearchQuery(key, array);
-    }
-
-    return this.fuzzySearchQuery(key, array);
-  }
-
-  exactSearchQuery(key, array) {
-    let _this = this;
-
-    return _filter(array, { [`${_this.props.searchKey}`]: key });
-  }
-
-  fuzzySearchQuery(key, array) {
-    let _this = this;
-
-    return _filter(array, (item) => {
-      let searchableItem = item[`${_this.props.searchKey}`].toString();
-      if (searchableItem.indexOf(key) !== -1) {
-        return searchableItem;
-      }
-    });
-  }
-
-  handleSetValue(value) {
-    this.setState({
-      value: value.target.innerText,
-      showDropdown: false
-    }, () => {
-      if (this.props.onChange) {
-        this.props.onChange(this.state.value);
-      }
-    });
-  }
+  `;
 
   render() {
     return (
-      <div
-        className={ classNames({
-          search: true,
-          [this.props.class]: !this.props.class ? false : true
-        }) }
+      <Downshift
+        onChange={selection => this.props.onChange(selection)}
+        itemToString={item => (item ? item[this.props.searchKey] : "")}
       >
-        <div className="search__input">
-          <InputWrapper
-            type="text"
-            className={ classNames({
-              input: true,
-              'input--show-dropdown': this.state.showDropdown
-            }) }
-            placeholder={ this.props.placeholder }
-            onChange={ this.handleChange.bind(this) }
-            value={ this.state.value }
-          />
-        </div>
-        <div className="search__dropdown">
-          <Dropdown
-            data={ this.state.matchedData }
-            onClick={ this.handleSetValue.bind(this) }
-            show={ this.state.showDropdown }
-            searchKey={ this.props.searchKey }
-          />
-        </div>
-      </div>
+        {({
+          getInputProps,
+          getItemProps,
+          getLabelProps,
+          getMenuProps,
+          isOpen,
+          inputValue,
+          getRootProps
+        }) => (
+          <Select.StyledContainer
+            {...getRootProps({ refKey: "downshift" })}
+            className={this.props.class}
+          >
+            <Select.StyledLabel {...getLabelProps()}>
+              {this.props.placeholder}
+            </Select.StyledLabel>
+            <Select.StyledInput
+              loading={this.props.loading}
+              height={this.props.height}
+              width={this.props.width}
+              {...getInputProps({ disabled: this.props.loading })}
+            />
+            <Select.StyledMenu {...getMenuProps()} width={this.props.width}>
+              {isOpen
+                ? this.props.data
+                    .filter(
+                      item =>
+                        !inputValue ||
+                        item[this.props.searchKey].includes(inputValue)
+                    )
+                    .map((item, index) => (
+                      <Select.StyledLi
+                        {...getItemProps({
+                          key: item[this.props.searchKey],
+                          index,
+                          item
+                        })}
+                        height={this.props.height}
+                      >
+                        {item[this.props.searchKey]}
+                      </Select.StyledLi>
+                    ))
+                : null}
+            </Select.StyledMenu>
+          </Select.StyledContainer>
+        )}
+      </Downshift>
     );
   }
 }
+
+export default Select;

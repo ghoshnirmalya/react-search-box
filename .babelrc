@@ -1,3 +1,12 @@
 {
-    "presets": ["es2015", "stage-2", "react"]
+  "env": {
+    "development": {
+      "presets": ["env", "react"],
+      "plugins": ["add-module-exports", "transform-class-properties"]
+    },
+    "production": {
+      "presets": ["env", "minify", "react"],
+      "plugins": ["add-module-exports", "transform-class-properties"]
+    }
+  }
 }
