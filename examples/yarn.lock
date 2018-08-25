@@ -5627,7 +5627,7 @@ react-scripts@1.1.5:
 
 "react-search-box@https://github.com/ghoshnirmalya/react-search-box#enhancements":
   version "0.0.11"
-  resolved "https://github.com/ghoshnirmalya/react-search-box#ccc6a2d7cf5515357e35bbcad437a0653e9a7fa0"
+  resolved "https://github.com/ghoshnirmalya/react-search-box#b66eaf2afbc7c06d64e29dc9475421127332803c"
   dependencies:
     downshift "^2.1.5"
     react "^16.4.2"
