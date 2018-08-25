@@ -3,12 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "downshift": "^2.1.5",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-scripts": "1.1.5",
-    "react-search-box": "https://github.com/ghoshnirmalya/react-search-box#enhancements",
-    "styled-components": "^3.4.5"
+    "react-search-box": "https://github.com/ghoshnirmalya/react-search-box"
   },
   "scripts": {
     "start": "react-scripts start",
