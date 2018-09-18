@@ -40,7 +40,7 @@ The 'data' property should be provided as an `Array`.
 The `placeholder` property of each option should be set to either a string or a number.
 The `searchKey` property of each option should be set to either a string or a number. It is the key that the search box will use for while iterating over your array of objects.
 
-Have a look at the [`example/src/app.js`](https://github.com/ghoshnirmalya/react-search-box/blob/master/example/src/app.js) file for more details.
+Have a look at the [`example/src/app.js`](https://github.com/ghoshnirmalya/react-search-box/blob/master/examples/src/app.js) file for more details.
 
 ### Custom classNames
 
