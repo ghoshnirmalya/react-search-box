@@ -5,7 +5,7 @@
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.5",
+    "react-scripts": "2.0.3",
     "react-search-box": "https://github.com/ghoshnirmalya/react-search-box"
   },
   "scripts": {
