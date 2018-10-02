@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Downshift from "downshift";
-import styled from "styled-components";
+import React, { Component } from 'react'
+import Downshift from 'downshift'
+import styled from 'styled-components'
 
 class Select extends Component {
   static defaultProps = {
@@ -25,7 +25,7 @@ class Select extends Component {
     border-radius: 2px;
     font-size: inherit;
     padding: 5px 10px;
-    background-color: ${props => (props.disabled ? "#eee" : "transparent")};
+    background-color: ${props => (props.disabled ? '#eee' : 'transparent')};
   `;
 
   static StyledMenu = React.forwardRef((props, ref) => (
@@ -53,11 +53,11 @@ class Select extends Component {
     }
   `;
 
-  render() {
+  render () {
     return (
       <Downshift
         onChange={selection => this.props.onChange(selection)}
-        itemToString={item => (item ? item[this.props.searchKey] : "")}
+        itemToString={item => (item ? item[this.props.searchKey] : '')}
       >
         {({
           getInputProps,
@@ -69,7 +69,7 @@ class Select extends Component {
           getRootProps
         }) => (
           <Select.StyledContainer
-            {...getRootProps({ refKey: "downshift" })}
+            {...getRootProps({ refKey: 'downshift' })}
             className={this.props.class}
           >
             <Select.StyledLabel {...getLabelProps()}>
@@ -84,30 +84,30 @@ class Select extends Component {
             <Select.StyledMenu {...getMenuProps()} width={this.props.width}>
               {isOpen
                 ? this.props.data
-                    .filter(
-                      item =>
-                        !inputValue ||
+                  .filter(
+                    item =>
+                      !inputValue ||
                         item[this.props.searchKey].includes(inputValue)
-                    )
-                    .map((item, index) => (
-                      <Select.StyledLi
-                        {...getItemProps({
-                          key: item[this.props.searchKey],
-                          index,
-                          item
-                        })}
-                        height={this.props.height}
-                      >
-                        {item[this.props.searchKey]}
-                      </Select.StyledLi>
-                    ))
+                  )
+                  .map((item, index) => (
+                    <Select.StyledLi
+                      {...getItemProps({
+                        key: item[this.props.searchKey],
+                        index,
+                        item
+                      })}
+                      height={this.props.height}
+                    >
+                      {item[this.props.searchKey]}
+                    </Select.StyledLi>
+                  ))
                 : null}
             </Select.StyledMenu>
           </Select.StyledContainer>
         )}
       </Downshift>
-    );
+    )
   }
 }
 
-export default Select;
+export default Select

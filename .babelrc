@@ -1,12 +1,12 @@
 {
-  "env": {
-    "development": {
-      "presets": ["env", "react"],
-      "plugins": ["add-module-exports", "transform-class-properties"]
-    },
-    "production": {
-      "presets": ["env", "minify", "react"],
-      "plugins": ["add-module-exports", "transform-class-properties"]
-    }
-  }
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    "stage-0",
+    "react"
+  ]
 }
