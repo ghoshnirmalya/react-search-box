@@ -88,7 +88,6 @@
     ]
   },
   "dependencies": {
-    "fuse.js": "^3.3.0",
-    "lodash": "^4.17.11"
+    "fuse.js": "^3.3.0"
   }
 }
