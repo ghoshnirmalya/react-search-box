@@ -151,7 +151,6 @@ export default class ReactSearchBox extends Component {
         className={styles.input}
         type="text"
         placeholder={placeholder}
-        defaultValue={value}
         value={value}
         onChange={this.handleInputChange}
       />
