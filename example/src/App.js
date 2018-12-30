@@ -29,12 +29,14 @@ export default class App extends Component {
   render() {
     return (
       <div className="container">
-        <ReactSearchBox
-          placeholder="Placeholder"
-          value="Doe"
-          data={this.data}
-          callback={record => console.log(record)}
-        />
+        <div className="search-box">
+          <ReactSearchBox
+            placeholder="Placeholder"
+            value="Doe"
+            data={this.data}
+            callback={record => console.log(record)}
+          />
+        </div>
       </div>
     )
   }

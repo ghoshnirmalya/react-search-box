@@ -3,8 +3,8 @@
 }
 
 .container {
-  background-color: #03a9f41f;
-  padding: 50px;
+  display: flex;
+  flex-direction: column;
 }
 
 .input {
@@ -12,7 +12,7 @@
   padding: 10px 20px;
   height: 50px;
   width: 500px;
-  border: 1px solid #3f51b5;
+  border: 1px solid #cacaca96;
 }
 
 .input:focus {
@@ -31,8 +31,8 @@
 
 .dropdownListItem {
   padding: 10px 20px;
-  background-color: #2196f352;
-  border: 1px solid #3f51b5;
+  background-color: #f1f1f166;
+  border: 1px solid #c7c0c096;
 }
 
 .dropdownListItem:not(:first-child) {
@@ -40,7 +40,6 @@
 }
 
 .dropdownListItem:hover {
-  background-color: #3f51b5;
-  color: #fff;
+  background-color: #cacaca96;
   cursor: pointer;
 }

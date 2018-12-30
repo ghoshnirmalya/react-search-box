@@ -8,5 +8,8 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+
+.search-box {
+  margin-top: 300px;
 }
