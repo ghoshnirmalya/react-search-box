@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import styles from './styles.css'
 
-export default class ExampleComponent extends Component {
+export default class ReactSearchBox extends Component {
   static propTypes = {
     value: PropTypes.string,
     placeholder: PropTypes.string,
