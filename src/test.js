@@ -133,11 +133,13 @@ describe('Dropdown', () => {
   })
 
   test('should update the value of the input box once clicked on any dropdown item', () => {
+    const handleClick = jest.fn()
     const { getByPlaceholderText, getByText } = render(
       <ReactSearchBox
         value="Doe"
         placeholder="Put some text in here!"
         data={data}
+        callback={handleClick}
       />
     )
 
@@ -159,11 +161,13 @@ describe('Dropdown', () => {
   })
 
   test('should close the dropdown onClick of any dropdown item', () => {
+    const handleClick = jest.fn()
     const { container, getByText } = render(
       <ReactSearchBox
         value="Doe"
         placeholder="Put some text in here!"
         data={data}
+        callback={handleClick}
       />
     )
 
