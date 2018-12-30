@@ -18,16 +18,16 @@ const data = [
     value: 'Jane Doe',
   },
   {
-    key: 'Mary Phillips',
-    value: 'mary',
+    key: 'mary',
+    value: 'Mary Phillips',
   },
   {
-    key: 'Robert',
-    value: 'robert',
+    key: 'robert',
+    value: 'Robert',
   },
   {
-    key: 'Karius',
-    value: 'karius',
+    key: 'karius',
+    value: 'Karius',
   },
 ]
 
@@ -120,6 +120,7 @@ describe('Dropdown', () => {
     expect(dropdownNodes.length).toEqual(1)
 
     const inputNode = getByPlaceholderText('Put some text in here!')
+
     fireEvent.change(inputNode, {
       target: { value: 'Doe' },
     })
@@ -129,5 +130,31 @@ describe('Dropdown', () => {
     )
 
     expect(dropdownNodes.length).toEqual(2)
+  })
+
+  test('should update the value of the input box once clicked on any dropdown item', () => {
+    const { getByPlaceholderText, getByText } = render(
+      <ReactSearchBox
+        value="Doe"
+        placeholder="Put some text in here!"
+        data={data}
+      />
+    )
+
+    fireEvent.click(getByText('John Doe'))
+
+    let inputNode = getByPlaceholderText('Put some text in here!')
+
+    expect(inputNode.value).toEqual('John Doe')
+
+    fireEvent.change(inputNode, {
+      target: { value: 'Doe' },
+    })
+
+    fireEvent.click(getByText('Jane Doe'))
+
+    inputNode = getByPlaceholderText('Put some text in here!')
+
+    expect(inputNode.value).toEqual('Jane Doe')
   })
 })

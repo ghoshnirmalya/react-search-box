@@ -13,16 +13,16 @@ export default class App extends Component {
       value: 'Jane Doe',
     },
     {
-      key: 'Mary Phillips',
-      value: 'mary',
+      key: 'mary',
+      value: 'Mary Phillips',
     },
     {
-      key: 'Robert',
-      value: 'robert',
+      key: 'robert',
+      value: 'Robert',
     },
     {
-      key: 'Karius',
-      value: 'karius',
+      key: 'karius',
+      value: 'Karius',
     },
   ]
 

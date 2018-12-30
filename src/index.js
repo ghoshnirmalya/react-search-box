@@ -26,6 +26,7 @@ export default class ReactSearchBox extends Component {
      * 'matchedRecords' stores the items when the input box's value
      * matches with any item from the 'data' prop
      */
+    value: '',
     matchedRecords: [],
   }
 
@@ -77,9 +78,18 @@ export default class ReactSearchBox extends Component {
 
   componentDidMount() {
     const { value } = this.props
+
+    /**
+     * If any 'value' is passed as prop, find if it matches with any item
+     * from teh 'data' prop. If there is any record, which matches with
+     * the query, update 'matchedRecord' state with the matched object(s)
+     *
+     * Also, update the 'value' state with the 'value' prop.
+     */
     const matchedRecords = this.fuse.search(value)
 
     this.setState({
+      value,
       matchedRecords,
     })
   }
@@ -101,9 +111,11 @@ export default class ReactSearchBox extends Component {
     const matchedRecords = this.fuse.search(value)
 
     /**
+     * Update 'value' state with the value from the input box
      * Update 'matchedRecords' state with the matched records from the data array
      */
     this.setState({
+      value,
       matchedRecords,
     })
   }
@@ -116,7 +128,8 @@ export default class ReactSearchBox extends Component {
      * with any value which is present in the 'data' prop. If any value
      * matches with the input, then that matched item appears in the dropdown
      */
-    const { value, placeholder } = this.props
+    const { placeholder } = this.props
+    const { value } = this.state
 
     return (
       <input
@@ -124,9 +137,25 @@ export default class ReactSearchBox extends Component {
         type="text"
         placeholder={placeholder}
         defaultValue={value}
+        value={value}
         onChange={this.handleInputChange}
       />
     )
+  }
+
+  handleDropdownItemClick = record => {
+    /**
+     * This function is responsible for updating the value inside the
+     * input box when any dropdown item is clicked.
+     *
+     * The 'value' state is updated with the clicked record's value.
+     */
+
+    const { value } = record
+
+    this.setState({
+      value,
+    })
   }
 
   dropdownNode = () => {
@@ -156,6 +185,7 @@ export default class ReactSearchBox extends Component {
                 className={`react-search-box-dropdown-list-item ${
                   styles.dropdownListItem
                 }`}
+                onClick={() => this.handleDropdownItemClick(record)}
               >
                 {record.value}
               </li>
