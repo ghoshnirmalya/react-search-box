@@ -157,4 +157,22 @@ describe('Dropdown', () => {
 
     expect(inputNode.value).toEqual('Jane Doe')
   })
+
+  test('should close the dropdown onClick of any dropdown item', () => {
+    const { container, getByText } = render(
+      <ReactSearchBox
+        value="Doe"
+        placeholder="Put some text in here!"
+        data={data}
+      />
+    )
+
+    fireEvent.click(getByText('John Doe'))
+
+    const dropdownNodes = container.querySelectorAll(
+      '.react-search-box-dropdown-list-item'
+    )
+
+    expect(dropdownNodes.length).toEqual(0)
+  })
 })
