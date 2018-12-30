@@ -1,0 +1,8 @@
+{
+  "short_name": "react-search-box",
+  "name": "react-search-box",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
