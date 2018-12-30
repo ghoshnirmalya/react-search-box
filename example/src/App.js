@@ -33,6 +33,7 @@ export default class App extends Component {
           placeholder="Placeholder"
           value="Doe"
           data={this.data}
+          callback={record => console.log(record)}
         />
       </div>
     )

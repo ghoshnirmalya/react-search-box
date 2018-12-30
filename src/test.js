@@ -175,4 +175,20 @@ describe('Dropdown', () => {
 
     expect(dropdownNodes.length).toEqual(0)
   })
+
+  test('should trigger the callback prop onClick of any dropdown item', () => {
+    const handleClick = jest.fn()
+    const { getByText } = render(
+      <ReactSearchBox
+        value="Doe"
+        placeholder="Put some text in here!"
+        data={data}
+        callback={handleClick}
+      />
+    )
+
+    fireEvent.click(getByText('John Doe'))
+
+    expect(handleClick).toHaveBeenCalledTimes(1)
+  })
 })

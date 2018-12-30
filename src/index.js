@@ -10,10 +10,13 @@ export default class ReactSearchBox extends Component {
      * value: The default value for the input box.
      * placeholder: The placeholder text for the input box.
      * data: An array of objects which acts as teh source of data for the dropdown.
+     * callback: A function which acts as a callback when any record is selected. It
+     * is triggered once a dropdown item is clicked
      */
     value: PropTypes.string,
     placeholder: PropTypes.string,
     data: PropTypes.array.isRequired,
+    callback: PropTypes.func,
   }
 
   static defaultProps = {
@@ -164,6 +167,7 @@ export default class ReactSearchBox extends Component {
      */
 
     const { value } = record
+    const { callback } = this.props
 
     this.setState({
       value,
@@ -172,6 +176,11 @@ export default class ReactSearchBox extends Component {
        */
       showDropdown: false,
     })
+
+    /**
+     * Trigger the 'callback' prop once everything is done
+     */
+    callback(record)
   }
 
   dropdownNode = () => {
