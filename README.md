@@ -84,6 +84,7 @@ yarn test
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 - [Jest](https://jestjs.io/) - Delightful JavaScript Testing
 - [react-testing-library](https://github.com/kentcdodds/react-testing-library) - Simple and complete React DOM testing utilities that encourage good testing practices.
+- [Fuse](http://fusejs.io/) - Lightweight fuzzy-search library. Zero dependencies.
 
 ## License
 
