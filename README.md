@@ -15,11 +15,7 @@ An autocomplete search box built with and for React.
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-#### Step 1: Install the plugin
+### Installation
 
 ```
 npm i react-search-box --save
@@ -31,53 +27,56 @@ If you prefer to use `yarn`, you can do:
 yarn add react-search-box
 ```
 
-#### Step 2: Import the plugin in your project
+### Usage
 
 ```
+import React, { Component } from 'react'
 import ReactSearchBox from 'react-search-box'
-```
 
-#### Step 3: Define the plugin in your project
+export default class App extends Component {
+  data = [
+    {
+      key: 'john',
+      value: 'John Doe',
+    },
+    {
+      key: 'jane',
+      value: 'Jane Doe',
+    },
+    {
+      key: 'mary',
+      value: 'Mary Phillips',
+    },
+    {
+      key: 'robert',
+      value: 'Robert',
+    },
+    {
+      key: 'karius',
+      value: 'Karius',
+    },
+  ]
 
-```
-const data = [
-  {
-    key: 'john',
-    value: 'John Doe',
-  },
-  {
-    key: 'jane',
-    value: 'Jane Doe',
-  },
-  {
-    key: 'mary',
-    value: 'Mary Phillips',
-  },
-  {
-    key: 'robert',
-    value: 'Robert',
-  },
-  {
-    key: 'karius',
-    value: 'Karius',
-  },
-]
-
-<ReactSearchBox
-  placeholder="Placeholder"
-  value="Doe"
-  data={data}
-  callback={record => console.log(record)}
-/>
-```
-
-## Running the tests
-
-If you want to run tests, you can do:
+  render() {
+    return (
+      <ReactSearchBox
+        placeholder="Placeholder"
+        value="Doe"
+        data={this.data}
+        callback={record => console.log(record)}
+      />
+    )
+  }
+}
 
 ```
-yarn test
-```
+
+## Props
+
+- `value` - The default value for the input box.
+- `placeholder` - The placeholder text for the input box.
+- `data` - An array of objects which acts as teh source of data for the dropdown. This prop is required.
+- `callback` - A function which acts as a callback when any record is selected. It is triggered once a dropdown item is clicked.
 
 ## Built With
 
