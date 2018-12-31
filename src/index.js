@@ -1,8 +1,55 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Fuse from 'fuse.js'
+import styled, { createGlobalStyle } from 'styled-components'
 
-import styles from './styles.css'
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+`
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const StyledInput = styled.input`
+  font-size: 16px;
+  padding: 10px 20px;
+  height: 50px;
+  width: 500px;
+  border: 1px solid #cacaca96;
+
+  &:focus {
+    outline: none;
+  }
+`
+
+const StyledDropdown = styled.div`
+  margin: 10px 0 0;
+
+  > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      padding: 10px 20px;
+      background-color: #f1f1f166;
+      border: 1px solid #c7c0c096;
+
+      &:hover {
+        background-color: #cacaca96;
+        cursor: pointer;
+      }
+
+      &:not(:first-child) {
+        border-top: 0;
+      }
+    }
+  }
+`
 
 export default class ReactSearchBox extends Component {
   static propTypes = {
@@ -147,8 +194,7 @@ export default class ReactSearchBox extends Component {
     const { value } = this.state
 
     return (
-      <input
-        className={styles.input}
+      <StyledInput
         type="text"
         placeholder={placeholder}
         value={value}
@@ -199,15 +245,13 @@ export default class ReactSearchBox extends Component {
     if (!showDropdown) return false
 
     return (
-      <div className={`react-search-box-dropdown ${styles.dropdown}`}>
-        <ul className={styles.dropdownList}>
+      <StyledDropdown className="react-search-box-dropdown">
+        <ul>
           {matchedRecords.map(record => {
             return (
               <li
                 key={record.key}
-                className={`react-search-box-dropdown-list-item ${
-                  styles.dropdownListItem
-                }`}
+                className="react-search-box-dropdown-list-item"
                 onClick={() => this.handleDropdownItemClick(record)}
               >
                 {record.value}
@@ -215,16 +259,17 @@ export default class ReactSearchBox extends Component {
             )
           })}
         </ul>
-      </div>
+      </StyledDropdown>
     )
   }
 
   render() {
     return (
-      <div className={styles.container}>
+      <StyledContainer>
+        <GlobalStyle />
         {this.inputNode()}
         {this.dropdownNode()}
-      </div>
+      </StyledContainer>
     )
   }
 }
