@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import ReactSearchBox from 'react-search-box'
 
 export default class App extends Component {
@@ -26,17 +25,50 @@ export default class App extends Component {
     },
   ]
 
+  navbarNode = () => {
+    return (
+      <div className="navbar-container">
+        <ul>
+          <li>
+            <a href="#home">Home</a>
+          </li>
+          <li>
+            <a href="#props">Props</a>
+          </li>
+        </ul>
+      </div>
+    )
+  }
+
+  jumbotronNode = () => {
+    return (
+      <div className="jumbotron-container">
+        <div className="title">React Search Box</div>
+        <div className="sub-title">An autocomplete search box for ReactJS</div>
+        <button className="button">Install from Github</button>
+      </div>
+    )
+  }
+
+  reactSearchBoxNode = () => {
+    return (
+      <div className="react-search-box-container">
+        <h2 className="title">Example usage</h2>
+        <ReactSearchBox
+          placeholder="Search for John, Jane or Mary"
+          data={this.data}
+          callback={record => console.log(record)}
+        />
+      </div>
+    )
+  }
+
   render() {
     return (
-      <div className="container">
-        <div className="search-box">
-          <ReactSearchBox
-            placeholder="Placeholder"
-            value="Doe"
-            data={this.data}
-            callback={record => console.log(record)}
-          />
-        </div>
+      <div className="layout-container">
+        {this.navbarNode()}
+        {this.jumbotronNode()}
+        {this.reactSearchBoxNode()}
       </div>
     )
   }

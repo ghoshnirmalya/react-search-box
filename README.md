@@ -73,7 +73,6 @@ export default class App extends Component {
 
 ## Props
 
-- `value` - The default value for the input box.
 - `placeholder` - The placeholder text for the input box.
 - `data` - An array of objects which acts as teh source of data for the dropdown. This prop is required.
 - `callback` - A function which acts as a callback when any record is selected. It is triggered once a dropdown item is clicked.

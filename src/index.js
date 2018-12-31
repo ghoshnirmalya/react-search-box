@@ -54,13 +54,11 @@ const StyledDropdown = styled.div`
 export default class ReactSearchBox extends Component {
   static propTypes = {
     /**
-     * value: The default value for the input box.
      * placeholder: The placeholder text for the input box.
      * data: An array of objects which acts as teh source of data for the dropdown.
      * callback: A function which acts as a callback when any record is selected. It
      * is triggered once a dropdown item is clicked
      */
-    value: PropTypes.string,
     placeholder: PropTypes.string,
     data: PropTypes.array.isRequired,
     callback: PropTypes.func,
@@ -128,30 +126,6 @@ export default class ReactSearchBox extends Component {
     this.fuse = new Fuse(data, options)
   }
 
-  componentDidMount() {
-    const { value } = this.props
-
-    /**
-     * If any 'value' is passed as prop, find if it matches with any item
-     * from teh 'data' prop. If there is any record, which matches with
-     * the query, update 'matchedRecord' state with the matched object(s).
-     *
-     * Also, update the 'value' state with the 'value' prop.
-     */
-    const matchedRecords = this.fuse.search(value)
-
-    this.setState({
-      value: value.trim(),
-      matchedRecords,
-      /**
-       * Control the showing and hiding of the dropdown when there is any value
-       * in the input box. But, close the dropdown once any dropdown item is
-       * clicked.
-       */
-      showDropdown: !!value.trim(),
-    })
-  }
-
   handleInputChange = e => {
     /**
      * This function is responsible for checking if any items from the input
@@ -173,7 +147,7 @@ export default class ReactSearchBox extends Component {
      * Update 'matchedRecords' state with the matched records from the data array.
      */
     this.setState({
-      value: value.trim(),
+      value,
       matchedRecords,
       /**
        * Show the dropdown onChange of the input
