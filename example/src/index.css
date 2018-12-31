@@ -65,6 +65,9 @@ a {
   background: #fff;
   color: #673ab7;
   font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .react-search-box-container {
   padding: 50px;

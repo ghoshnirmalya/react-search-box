@@ -45,7 +45,12 @@ export default class App extends Component {
       <div className="jumbotron-container">
         <div className="title">React Search Box</div>
         <div className="sub-title">An autocomplete search box for ReactJS</div>
-        <button className="button">Install from Github</button>
+        <a
+          href="https://github.com/ghoshnirmalya/react-search-box"
+          className="button"
+        >
+          Install from Github
+        </a>
       </div>
     )
   }
