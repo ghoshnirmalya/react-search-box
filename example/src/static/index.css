@@ -1,15 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+* {
+  box-sizing: border-box;
+}
 body {
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 24px;
   color: #525a60;
-  font-family: 'Lato', sans-serif;
   min-height: 100vh;
   background: #fff;
 }
 a {
   color: #673ab7;
   text-decoration: none;
+}
+h2 {
+  color: #000;
 }
 .navbar-container {
   background-color: #fff;
@@ -19,6 +27,7 @@ a {
   align-items: center;
   padding: 0 20px;
   justify-content: space-between;
+  border-bottom: 2px solid #673ab721;
 }
 .navbar-container > ul {
   display: flex;
@@ -62,21 +71,32 @@ a {
   border-radius: 5px;
   height: 50px;
   font-size: 14px;
-  background: #fff;
+  background-color: #fff;
   color: #673ab7;
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.react-search-box-container {
-  padding: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.jumbotron-container > .button:hover {
+  color: #fff;
+  background-color: #673ab7;
 }
 .react-search-box-container .title {
   font-size: 20px;
   margin-bottom: 20px;
+}
+.page-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+}
+.page-container .section {
+  margin: 0 0 50px;
+  width: 800px;
+}
+.page-container .section pre[class*='language-'] {
+  margin-bottom: 50px;
+  font-size: 14px;
 }

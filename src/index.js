@@ -15,11 +15,11 @@ const StyledContainer = styled.div`
 `
 
 const StyledInput = styled.input`
-  font-size: 16px;
+  font-size: 14px;
   padding: 10px 20px;
-  height: 50px;
-  width: 500px;
+  height: 40px;
   border: 1px solid #cacaca96;
+  border-radius: 5px;
 
   &:focus {
     outline: none;
@@ -28,6 +28,9 @@ const StyledInput = styled.input`
 
 const StyledDropdown = styled.div`
   margin: 10px 0 0;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 0 0, rgba(0, 0, 0, 0.1) 0px 4px 11px;
+  border-radius: 5px;
 
   > ul {
     list-style-type: none;
@@ -36,12 +39,25 @@ const StyledDropdown = styled.div`
 
     > li {
       padding: 10px 20px;
-      background-color: #f1f1f166;
+      background-color: #fff;
       border: 1px solid #c7c0c096;
+      height: 40px;
+      display: flex;
+      align-items: center;
 
       &:hover {
-        background-color: #cacaca96;
+        background-color: #673ab721;
         cursor: pointer;
+      }
+
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
       }
 
       &:not(:first-child) {
