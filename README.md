@@ -1,19 +1,12 @@
-# react-search-box
-
-An autocomplete search box built with and for React.
+![react search box](https://user-images.githubusercontent.com/6391763/50571850-21a4f080-0dda-11e9-9370-ac16c4e93746.png)
 
 <!-- prettier-ignore-start -->
 [![Greenkeeper]][greenkeeper]
 [![Build Status][build-badge]][build]
 [![downloads][downloads-badge]][npmtrends]
 [![MIT License][license-badge]][license]
-
 [![PRs Welcome][prs-badge]][prs]
 <!-- prettier-ignore-end -->
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Installation
 
@@ -68,7 +61,6 @@ export default class App extends Component {
     )
   }
 }
-
 ```
 
 ## Props
