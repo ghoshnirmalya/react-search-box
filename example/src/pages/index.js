@@ -110,7 +110,7 @@ class IndexPage extends Component {
                 data for the dropdown. This prop is required.
               </p>
               <p>
-                <b>callback</b> - A function which acts as a callback when any
+                <b>onSelect</b> - A function which acts as a callback when any
                 record is selected. It is triggered once a dropdown item is
                 clicked.
               </p>

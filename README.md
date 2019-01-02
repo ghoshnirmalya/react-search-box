@@ -67,7 +67,8 @@ export default class App extends Component {
 
 - `placeholder` - The placeholder text for the input box.
 - `data` - An array of objects which acts as teh source of data for the dropdown. This prop is required.
-- `callback` - A function which acts as a callback when any record is selected. It is triggered once a dropdown item is clicked.
+- `onSelect` - A function which acts as a callback when any record is selected. It is triggered once a dropdown item is clicked.
+- `autoFocus` - Focus on the input box once the component is mounted.
 
 ## Built With
 

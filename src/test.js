@@ -144,7 +144,7 @@ describe('Dropdown', () => {
       <ReactSearchBox
         placeholder="Put some text in here!"
         data={data}
-        callback={handleClick}
+        onSelect={handleClick}
       />
     )
     let inputNode = getByPlaceholderText('Put some text in here!')
@@ -176,7 +176,7 @@ describe('Dropdown', () => {
       <ReactSearchBox
         placeholder="Put some text in here!"
         data={data}
-        callback={handleClick}
+        onSelect={handleClick}
       />
     )
     const inputNode = getByPlaceholderText('Put some text in here!')
@@ -194,13 +194,13 @@ describe('Dropdown', () => {
     expect(dropdownNodes.length).toEqual(0)
   })
 
-  test('should trigger the callback prop onClick of any dropdown item', () => {
+  test('should trigger the onSelect prop onClick of any dropdown item', () => {
     const handleClick = jest.fn()
     const { getByText, getByPlaceholderText } = render(
       <ReactSearchBox
         placeholder="Put some text in here!"
         data={data}
-        callback={handleClick}
+        onSelect={handleClick}
       />
     )
     const inputNode = getByPlaceholderText('Put some text in here!')
