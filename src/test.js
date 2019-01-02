@@ -104,6 +104,36 @@ describe('Input Box', () => {
 
     expect(onFocus).toHaveBeenCalledTimes(0)
   })
+
+  test('shouldn trigger onChange callback if the value of the input box changes', () => {
+    const onChange = jest.fn()
+    const { getByPlaceholderText } = render(
+      <ReactSearchBox
+        placeholder="Put some text in here!"
+        onChange={onChange}
+      />
+    )
+    const inputNode = getByPlaceholderText('Put some text in here!')
+
+    fireEvent.change(inputNode, {
+      target: { value: 'Doe' },
+    })
+
+    expect(onChange).toHaveBeenCalledTimes(1)
+  })
+
+  test("shouldn't trigger onChange callback if the value of the input box doesn't change", () => {
+    const onChange = jest.fn()
+    const { getByPlaceholderText } = render(
+      <ReactSearchBox
+        placeholder="Put some text in here!"
+        onChange={onChange}
+      />
+    )
+    const inputNode = getByPlaceholderText('Put some text in here!')
+
+    expect(onChange).toHaveBeenCalledTimes(0)
+  })
 })
 
 describe('Dropdown', () => {

@@ -21,6 +21,7 @@ class IndexPage extends Component {
           onFocus={() => {
             console.log('This function is called when is focussed')
           }}
+          onChange={value => console.log(value)}
         />
       </div>
     )
@@ -113,17 +114,21 @@ class IndexPage extends Component {
                 data for the dropdown. This prop is required.
               </p>
               <p>
+                <b>autoFocus</b> - Focus on the input box once the component is
+                mounted.
+              </p>
+              <p>
                 <b>onSelect</b> - A function which acts as a callback when any
                 record is selected. It is triggered once a dropdown item is
                 clicked.
               </p>
               <p>
-                <b>autoFocus</b> - Focus on the input box once the component is
-                mounted.
-              </p>
-              <p>
                 <b>onFocus</b> - A function which acts as a callback when the
                 input is focussed.
+              </p>
+              <p>
+                <b>onChange</b> - A function which acts as a callback when the
+                input value is changed.
               </p>
             </div>
           </section>

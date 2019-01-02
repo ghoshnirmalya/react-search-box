@@ -76,12 +76,14 @@ export default class ReactSearchBox extends Component {
      * is triggered once a dropdown item is clicked.
      * autoFocus: Focus on the input box once the component is mounted.
      * onFocus: A function which acts as a callback when the input is focussed.
+     * onChange: A function which acts as a callback when the input value is changed.
      */
     placeholder: PropTypes.string,
     data: PropTypes.array.isRequired,
-    onSelect: PropTypes.func,
     autoFocus: PropTypes.bool,
+    onSelect: PropTypes.func,
     onFocus: PropTypes.func,
+    onChange: PropTypes.func,
   }
 
   static defaultProps = {
@@ -153,10 +155,15 @@ export default class ReactSearchBox extends Component {
   componentDidMount() {
     const { autoFocus } = this.props
 
+    /**
+     * Focusses on the input box if the autoFocus prop is true.
+     */
     !!autoFocus && this.input.focus()
   }
 
   handleInputChange = e => {
+    const { onChange } = this.props
+
     /**
      * This function is responsible for checking if any items from the input
      * box's value matches with any item form the 'data' prop. If any item matches,
@@ -173,17 +180,22 @@ export default class ReactSearchBox extends Component {
     const matchedRecords = this.fuse.search(value)
 
     /**
-     * Update 'value' state with the value from the input box
+     * Update 'value' state with the value from the input box.
      * Update 'matchedRecords' state with the matched records from the data array.
      */
     this.setState({
       value,
       matchedRecords,
       /**
-       * Show the dropdown onChange of the input
+       * Show the dropdown onChange of the input.
        */
       showDropdown: true,
     })
+
+    /**
+     * Trigger the 'onChange' prop once the input's value changes.
+     */
+    !!onChange && onChange(value)
   }
 
   inputNode = () => {
@@ -220,20 +232,25 @@ export default class ReactSearchBox extends Component {
      */
 
     const { value } = record
-    const { onSelect } = this.props
+    const { onSelect, onChange } = this.props
 
     this.setState({
       value,
       /**
-       * Hide the dropdown once any dropdown item is clicked
+       * Hide the dropdown once any dropdown item is clicked.
        */
       showDropdown: false,
     })
 
     /**
-     * Trigger the 'onSelect' prop once everything is done if it's passed
+     * Trigger the 'onSelect' prop once everything is done if it's passed.
      */
     !!onSelect && onSelect(record)
+
+    /**
+     * Trigger the 'onChange' prop since the value of the input box also changes.
+     */
+    !!onChange && onChange(value)
   }
 
   dropdownNode = () => {
