@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import Fuse from 'fuse.js'
 import styled, { createGlobalStyle } from 'styled-components'
 
+import InputBox from './components/input-box'
+import DropDown from './components/drop-down'
+
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
@@ -12,59 +15,6 @@ const GlobalStyle = createGlobalStyle`
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
-`
-
-const StyledInput = styled.input`
-  font-size: 14px;
-  padding: 10px 20px;
-  height: 40px;
-  border: 1px solid #cacaca96;
-  border-radius: 5px;
-
-  &:focus {
-    outline: none;
-  }
-`
-
-const StyledDropdown = styled.div`
-  margin: 10px 0 0;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0 0 0, rgba(0, 0, 0, 0.1) 0px 4px 11px;
-  border-radius: 5px;
-
-  > ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-
-    > li {
-      padding: 10px 20px;
-      background-color: #fff;
-      border: 1px solid #c7c0c096;
-      height: 40px;
-      display: flex;
-      align-items: center;
-
-      &:hover {
-        background-color: #673ab721;
-        cursor: pointer;
-      }
-
-      &:first-child {
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-      }
-
-      &:last-child {
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-      }
-
-      &:not(:first-child) {
-        border-top: 0;
-      }
-    }
-  }
 `
 
 export default class ReactSearchBox extends Component {
@@ -95,6 +45,10 @@ export default class ReactSearchBox extends Component {
      * Don't focus on the input box when the component is mounted by default
      */
     autoFocus: false,
+    /**
+     * Set the placeholder as empty text by default
+     */
+    placeholder: '',
   }
 
   state = {
@@ -152,15 +106,6 @@ export default class ReactSearchBox extends Component {
     this.fuse = new Fuse(data, options)
   }
 
-  componentDidMount() {
-    const { autoFocus } = this.props
-
-    /**
-     * Focusses on the input box if the autoFocus prop is true.
-     */
-    !!autoFocus && this.input.focus()
-  }
-
   handleInputChange = e => {
     const { onChange } = this.props
 
@@ -206,18 +151,16 @@ export default class ReactSearchBox extends Component {
      * with any value which is present in the 'data' prop. If any value
      * matches with the input, then that matched item appears in the dropdown.
      */
-    const { placeholder, onFocus } = this.props
+    const { placeholder, onFocus, autoFocus } = this.props
     const { value } = this.state
 
     return (
-      <StyledInput
+      <InputBox
         type="text"
         placeholder={placeholder}
         value={value}
         onChange={this.handleInputChange}
-        ref={input => {
-          this.input = input
-        }}
+        autoFocus={autoFocus ? autoFocus : undefined}
         onFocus={onFocus ? onFocus : undefined}
       />
     )
@@ -270,21 +213,10 @@ export default class ReactSearchBox extends Component {
     if (!showDropdown) return false
 
     return (
-      <StyledDropdown className="react-search-box-dropdown">
-        <ul>
-          {matchedRecords.map(record => {
-            return (
-              <li
-                key={record.key}
-                className="react-search-box-dropdown-list-item"
-                onClick={() => this.handleDropdownItemClick(record)}
-              >
-                {record.value}
-              </li>
-            )
-          })}
-        </ul>
-      </StyledDropdown>
+      <DropDown
+        matchedRecords={matchedRecords}
+        onClick={this.handleDropdownItemClick}
+      />
     )
   }
 
