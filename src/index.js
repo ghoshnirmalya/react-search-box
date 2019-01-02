@@ -73,13 +73,15 @@ export default class ReactSearchBox extends Component {
      * placeholder: The placeholder text for the input box.
      * data: An array of objects which acts as teh source of data for the dropdown.
      * onSelect: A function which acts as a callback when any record is selected. It
-     * is triggered once a dropdown item is clicked
-     * autoFocus: Focus on the input box once the component is mounted
+     * is triggered once a dropdown item is clicked.
+     * autoFocus: Focus on the input box once the component is mounted.
+     * onFocus: A function which acts as a callback when the input is focussed.
      */
     placeholder: PropTypes.string,
     data: PropTypes.array.isRequired,
     onSelect: PropTypes.func,
     autoFocus: PropTypes.bool,
+    onFocus: PropTypes.func,
   }
 
   static defaultProps = {
@@ -192,7 +194,7 @@ export default class ReactSearchBox extends Component {
      * with any value which is present in the 'data' prop. If any value
      * matches with the input, then that matched item appears in the dropdown.
      */
-    const { placeholder } = this.props
+    const { placeholder, onFocus } = this.props
     const { value } = this.state
 
     return (
@@ -204,6 +206,7 @@ export default class ReactSearchBox extends Component {
         ref={input => {
           this.input = input
         }}
+        onFocus={onFocus ? onFocus : undefined}
       />
     )
   }
@@ -228,9 +231,9 @@ export default class ReactSearchBox extends Component {
     })
 
     /**
-     * Trigger the 'onSelect' prop once everything is done
+     * Trigger the 'onSelect' prop once everything is done if it's passed
      */
-    onSelect(record)
+    !!onSelect && onSelect(record)
   }
 
   dropdownNode = () => {

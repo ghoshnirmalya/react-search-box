@@ -80,6 +80,30 @@ describe('Input Box', () => {
 
     expect(inputNode).not.toHaveFocus()
   })
+
+  test('should trigger onFocus callback if the input is focussed', () => {
+    const onFocus = jest.fn()
+    const { getByPlaceholderText } = render(
+      <ReactSearchBox
+        placeholder="Put some text in here!"
+        autoFocus
+        onFocus={onFocus}
+      />
+    )
+    const inputNode = getByPlaceholderText('Put some text in here!')
+
+    expect(onFocus).toHaveBeenCalledTimes(1)
+  })
+
+  test("shouldn't trigger onFocus callback if the input is not in focus", () => {
+    const onFocus = jest.fn()
+    const { getByPlaceholderText } = render(
+      <ReactSearchBox placeholder="Put some text in here!" onFocus={onFocus} />
+    )
+    const inputNode = getByPlaceholderText('Put some text in here!')
+
+    expect(onFocus).toHaveBeenCalledTimes(0)
+  })
 })
 
 describe('Dropdown', () => {

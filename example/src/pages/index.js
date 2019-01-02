@@ -17,7 +17,10 @@ class IndexPage extends Component {
         <ReactSearchBox
           placeholder="Search for John, Jane or Mary"
           data={data}
-          callback={record => console.log(record)}
+          onSelect={record => console.log(record)}
+          onFocus={() => {
+            console.log('This function is called when is focussed')
+          }}
         />
       </div>
     )
@@ -117,6 +120,10 @@ class IndexPage extends Component {
               <p>
                 <b>autoFocus</b> - Focus on the input box once the component is
                 mounted.
+              </p>
+              <p>
+                <b>onFocus</b> - A function which acts as a callback when the
+                input is focussed.
               </p>
             </div>
           </section>

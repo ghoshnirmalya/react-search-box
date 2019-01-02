@@ -69,6 +69,7 @@ export default class App extends Component {
 - `data` - An array of objects which acts as teh source of data for the dropdown. This prop is required.
 - `onSelect` - A function which acts as a callback when any record is selected. It is triggered once a dropdown item is clicked.
 - `autoFocus` - Focus on the input box once the component is mounted.
+- `onFocus` - A function which acts as a callback when the input is focussed.
 
 ## Built With
 
