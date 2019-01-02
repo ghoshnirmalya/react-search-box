@@ -27,6 +27,12 @@ export default class ReactSearchBox extends Component {
      * autoFocus: Focus on the input box once the component is mounted.
      * onFocus: A function which acts as a callback when the input is focussed.
      * onChange: A function which acts as a callback when the input value is changed.
+     * inputBoxFontColor: Color of the text in the input box.
+     * inputBoxBorderColor: Color of the border of the input box.
+     * inputBoxFontSize: Size of the font of the input box.
+     * inputBoxHeight: Height of the input box.
+     * dropDownHoverColor: Background color on hover of the dropdown list items.
+     * dropDownBorderColor: Border color of the dropdown.
      */
     placeholder: PropTypes.string,
     data: PropTypes.array.isRequired,
@@ -34,6 +40,12 @@ export default class ReactSearchBox extends Component {
     onSelect: PropTypes.func,
     onFocus: PropTypes.func,
     onChange: PropTypes.func,
+    inputBoxFontColor: PropTypes.string,
+    inputBoxBorderColor: PropTypes.string,
+    inputBoxFontSize: PropTypes.string,
+    inputBoxHeight: PropTypes.string,
+    dropDownHoverColor: PropTypes.string,
+    dropDownBorderColor: PropTypes.string,
   }
 
   static defaultProps = {
@@ -49,6 +61,12 @@ export default class ReactSearchBox extends Component {
      * Set the placeholder as empty text by default
      */
     placeholder: '',
+    inputBoxFontColor: '#000',
+    inputBoxBorderColor: '#cacaca96',
+    inputBoxFontSize: '14px',
+    inputBoxHeight: '40px',
+    dropDownHoverColor: '#ccc',
+    dropDownBorderColor: '#cacaca96',
   }
 
   state = {
@@ -151,7 +169,15 @@ export default class ReactSearchBox extends Component {
      * with any value which is present in the 'data' prop. If any value
      * matches with the input, then that matched item appears in the dropdown.
      */
-    const { placeholder, onFocus, autoFocus } = this.props
+    const {
+      placeholder,
+      onFocus,
+      autoFocus,
+      inputBoxFontColor,
+      inputBoxBorderColor,
+      inputBoxFontSize,
+      inputBoxHeight,
+    } = this.props
     const { value } = this.state
 
     return (
@@ -162,6 +188,10 @@ export default class ReactSearchBox extends Component {
         onChange={this.handleInputChange}
         autoFocus={autoFocus ? autoFocus : undefined}
         onFocus={onFocus ? onFocus : undefined}
+        inputBoxFontColor={inputBoxFontColor}
+        inputBoxBorderColor={inputBoxBorderColor}
+        inputBoxFontSize={inputBoxFontSize}
+        inputBoxHeight={inputBoxHeight}
       />
     )
   }
@@ -205,6 +235,7 @@ export default class ReactSearchBox extends Component {
      * 'matchedRecords' state.
      */
     const { matchedRecords, showDropdown } = this.state
+    const { dropDownHoverColor, dropDownBorderColor } = this.props
 
     /**
      * If there is no value present in the input box, then the dropdown
@@ -216,6 +247,8 @@ export default class ReactSearchBox extends Component {
       <DropDown
         matchedRecords={matchedRecords}
         onClick={this.handleDropdownItemClick}
+        dropDownHoverColor={dropDownHoverColor}
+        dropDownBorderColor={dropDownBorderColor}
       />
     )
   }

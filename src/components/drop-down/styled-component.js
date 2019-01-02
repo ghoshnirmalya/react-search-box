@@ -14,13 +14,13 @@ const StyledDropdown = styled.div`
     > li {
       padding: 10px 20px;
       background-color: #fff;
-      border: 1px solid #c7c0c096;
+      border: 1px solid ${props => props.dropDownBorderColor};
       height: 40px;
       display: flex;
       align-items: center;
 
       &:hover {
-        background-color: #673ab721;
+        background-color: ${props => props.dropDownHoverColor};
         cursor: pointer;
       }
 

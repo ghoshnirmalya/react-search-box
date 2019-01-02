@@ -130,6 +130,26 @@ class IndexPage extends Component {
                 <b>onChange</b> - A function which acts as a callback when the
                 input value is changed.
               </p>
+              <p>
+                <b>inputBoxFontColor</b> - Color of the text in the input box.
+              </p>
+              <p>
+                <b>inputBoxBorderColor</b> - Color of the border of the input
+                box.
+              </p>
+              <p>
+                <b>inputBoxFontSize</b> - Size of the font of the input box.
+              </p>
+              <p>
+                <b>inputBoxHeight</b> - Height of the input box.
+              </p>
+              <p>
+                <b>dropDownHoverColor</b> - Background color on hover of the
+                dropdown list items.
+              </p>
+              <p>
+                <b>dropDownBorderColor</b> - Border color of the dropdown.
+              </p>
             </div>
           </section>
           <section className="section">

@@ -9,9 +9,13 @@ class DropDown extends Component {
      * onClick: A function which acts as a callback when any record is selected. It
      * is triggered once a dropdown item is clicked.
      * matchedRecords: An array of matched records.
+     * dropDownHoverColor: Background color on hover of the dropdown list items.
+     * dropDownBorderColor: Border color of the dropdown.
      */
     onClick: PropTypes.func,
     matchedRecords: PropTypes.array,
+    dropDownHoverColor: PropTypes.string,
+    dropDownBorderColor: PropTypes.string,
   }
 
   static defaultProps = {
@@ -22,10 +26,19 @@ class DropDown extends Component {
   }
 
   render() {
-    const { matchedRecords, onClick } = this.props
+    const {
+      matchedRecords,
+      onClick,
+      dropDownHoverColor,
+      dropDownBorderColor,
+    } = this.props
 
     return (
-      <StyledDropDown className="react-search-box-dropdown">
+      <StyledDropDown
+        className="react-search-box-dropdown"
+        dropDownHoverColor={dropDownHoverColor}
+        dropDownBorderColor={dropDownBorderColor}
+      >
         <ul>
           {matchedRecords.map(record => {
             return (

@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 const StyledInput = styled.input`
-  font-size: 14px;
+  font-size: ${props => props.inputBoxFontSize};
   padding: 10px 20px;
-  height: 40px;
-  border: 1px solid #cacaca96;
+  height: ${props => props.inputBoxHeight};
+  border: 1px solid ${props => props.inputBoxBorderColor};
   border-radius: 5px;
+  color: ${props => props.inputBoxFontColor};
 
   &:focus {
     outline: none;

@@ -10,11 +10,19 @@ class InputBox extends Component {
      * value: The value of the input box.
      * onChange: A function which acts as a callback when the input value is changed.
      * onFocus: A function which acts as a callback when the input is focussed.
+     * inputBoxFontColor: Color of the text in the input box.
+     * inputBoxBorderColor: Color of the border of the input box.
+     * inputBoxFontSize: Size of the font of the input box.
+     * inputBoxHeight: Height of the input box.
      */
     placeholder: PropTypes.string,
     value: PropTypes.string,
     onChange: PropTypes.func,
     onFocus: PropTypes.func,
+    inputBoxFontColor: PropTypes.string,
+    inputBoxBorderColor: PropTypes.string,
+    inputBoxFontSize: PropTypes.string,
+    inputBoxHeight: PropTypes.string,
   }
 
   componentDidMount() {
@@ -27,7 +35,16 @@ class InputBox extends Component {
   }
 
   render() {
-    const { placeholder, value, onChange, onFocus } = this.props
+    const {
+      placeholder,
+      value,
+      onChange,
+      onFocus,
+      inputBoxFontColor,
+      inputBoxBorderColor,
+      inputBoxFontSize,
+      inputBoxHeight,
+    } = this.props
 
     return (
       <StyledInput
@@ -39,6 +56,10 @@ class InputBox extends Component {
         ref={input => {
           this.input = input
         }}
+        inputBoxFontColor={inputBoxFontColor}
+        inputBoxBorderColor={inputBoxBorderColor}
+        inputBoxFontSize={inputBoxFontSize}
+        inputBoxHeight={inputBoxHeight}
       />
     )
   }
