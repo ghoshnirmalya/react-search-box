@@ -74,10 +74,12 @@ export default class ReactSearchBox extends Component {
      * data: An array of objects which acts as teh source of data for the dropdown.
      * callback: A function which acts as a callback when any record is selected. It
      * is triggered once a dropdown item is clicked
+     * autoFocus: Focus on the input box once the component is mounted
      */
     placeholder: PropTypes.string,
     data: PropTypes.array.isRequired,
     callback: PropTypes.func,
+    autoFocus: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -85,6 +87,10 @@ export default class ReactSearchBox extends Component {
      * Set data prop as an empty array in case it's not passed.
      */
     data: [],
+    /**
+     * Don't focus on the input box when the component is mounted by default
+     */
+    autoFocus: false,
   }
 
   state = {
@@ -142,6 +148,12 @@ export default class ReactSearchBox extends Component {
     this.fuse = new Fuse(data, options)
   }
 
+  componentDidMount() {
+    const { autoFocus } = this.props
+
+    !!autoFocus && this.input.focus()
+  }
+
   handleInputChange = e => {
     /**
      * This function is responsible for checking if any items from the input
@@ -189,6 +201,9 @@ export default class ReactSearchBox extends Component {
         placeholder={placeholder}
         value={value}
         onChange={this.handleInputChange}
+        ref={input => {
+          this.input = input
+        }}
       />
     )
   }

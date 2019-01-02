@@ -36,7 +36,6 @@ describe('Input Box', () => {
     const { getByPlaceholderText } = render(
       <ReactSearchBox placeholder="Put some text in here!" />
     )
-
     const inputNode = getByPlaceholderText('Put some text in here!')
 
     expect(inputNode).toBeInTheDocument()
@@ -46,7 +45,6 @@ describe('Input Box', () => {
     const { getByPlaceholderText } = render(
       <ReactSearchBox placeholder="Put some text in here!" />
     )
-
     const inputNode = getByPlaceholderText('Put some text in here!')
 
     expect(inputNode.value).toEqual('')
@@ -56,7 +54,6 @@ describe('Input Box', () => {
     const { getByPlaceholderText } = render(
       <ReactSearchBox placeholder="Put some text in here!" />
     )
-
     const inputNode = getByPlaceholderText('Put some text in here!')
 
     fireEvent.change(inputNode, {
@@ -64,6 +61,24 @@ describe('Input Box', () => {
     })
 
     expect(inputNode.value).toEqual('This is the text which I typed in it!')
+  })
+
+  test('should focus on the input if autoFocus prop is true', () => {
+    const { getByPlaceholderText } = render(
+      <ReactSearchBox placeholder="Put some text in here!" autoFocus />
+    )
+    const inputNode = getByPlaceholderText('Put some text in here!')
+
+    expect(inputNode).toHaveFocus()
+  })
+
+  test("shouldn't focus on the input if autoFocus prop is false/not passed", () => {
+    const { getByPlaceholderText } = render(
+      <ReactSearchBox placeholder="Put some text in here!" />
+    )
+    const inputNode = getByPlaceholderText('Put some text in here!')
+
+    expect(inputNode).not.toHaveFocus()
   })
 })
 
@@ -89,7 +104,6 @@ describe('Dropdown', () => {
     const { container } = render(
       <ReactSearchBox placeholder="Put some text in here!" />
     )
-
     const dropdownNodes = container.querySelectorAll(
       '.react-search-box-dropdown'
     )

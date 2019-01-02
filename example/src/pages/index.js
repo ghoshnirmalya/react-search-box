@@ -114,6 +114,10 @@ class IndexPage extends Component {
                 record is selected. It is triggered once a dropdown item is
                 clicked.
               </p>
+              <p>
+                <b>autoFocus</b> - Focus on the input box once the component is
+                mounted.
+              </p>
             </div>
           </section>
           <section className="section">
