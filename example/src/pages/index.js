@@ -22,6 +22,9 @@ class IndexPage extends Component {
             console.log('This function is called when is focussed')
           }}
           onChange={value => console.log(value)}
+          fuseConfigs={{
+            threshold: 0.05,
+          }}
         />
       </div>
     )
@@ -85,10 +88,16 @@ class IndexPage extends Component {
     render() {
       return (
         <ReactSearchBox
-          placeholder="Placeholder"
-          value="Doe"
-          data={this.data}
-          callback={record => console.log(record)}
+          placeholder="Search for John, Jane or Mary"
+          data={data}
+          onSelect={record => console.log(record)}
+          onFocus={() => {
+            console.log('This function is called when is focussed')
+          }}
+          onChange={value => console.log(value)}
+          fuseConfigs={{
+            threshold: 0.05,
+          }}
         />
       )
     }
@@ -110,8 +119,11 @@ class IndexPage extends Component {
                 <b>placeholder</b> - The placeholder text for the input box.
               </p>
               <p>
-                <b>data</b> - An array of objects which acts as teh source of
+                <b>data</b> - An array of objects which acts as the source of
                 data for the dropdown. This prop is required.
+              </p>
+              <p>
+                <b>fuseConfigs</b> - Configs to override default Fuse configs.
               </p>
               <p>
                 <b>autoFocus</b> - Focus on the input box once the component is

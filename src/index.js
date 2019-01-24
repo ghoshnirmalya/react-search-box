@@ -22,6 +22,7 @@ export default class ReactSearchBox extends Component {
     /**
      * placeholder: The placeholder text for the input box.
      * data: An array of objects which acts as teh source of data for the dropdown.
+     * fuseConfigs: Configs to override default Fuse configs.
      * onSelect: A function which acts as a callback when any record is selected. It
      * is triggered once a dropdown item is clicked.
      * autoFocus: Focus on the input box once the component is mounted.
@@ -36,6 +37,7 @@ export default class ReactSearchBox extends Component {
      */
     placeholder: PropTypes.string,
     data: PropTypes.array.isRequired,
+    fuseConfigs: PropTypes.object,
     autoFocus: PropTypes.bool,
     onSelect: PropTypes.func,
     onFocus: PropTypes.func,
@@ -81,13 +83,13 @@ export default class ReactSearchBox extends Component {
   constructor(props) {
     super(props)
 
-    const { data } = props
+    const { data, fuseConfigs } = props
 
     /**
-     * These options are from Fuse plugin. Check out http://fusejs.io/
+     * These configs are from Fuse plugin. Check out http://fusejs.io/
      * for more details.
      */
-    const options = {
+    const defaultFuseConfigs = {
       /**
        * At what point does the match algorithm give up. A threshold of 0.0
        * requires a perfect match (of both letters and location), a threshold
@@ -121,7 +123,12 @@ export default class ReactSearchBox extends Component {
       keys: ['value'],
     }
 
-    this.fuse = new Fuse(data, options)
+    /**
+     * Override defaultFuseConfigs with fuseConfigs prop
+     */
+    const configs = Object.assign({}, defaultFuseConfigs, fuseConfigs)
+
+    this.fuse = new Fuse(data, configs)
   }
 
   handleInputChange = e => {
