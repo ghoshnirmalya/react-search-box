@@ -89,7 +89,7 @@ export default class ReactSearchBox extends Component {
      * These configs are from Fuse plugin. Check out http://fusejs.io/
      * for more details.
      */
-    const defaultFuseConfigs = {
+    this.defaultFuseConfigs = {
       /**
        * At what point does the match algorithm give up. A threshold of 0.0
        * requires a perfect match (of both letters and location), a threshold
@@ -124,11 +124,24 @@ export default class ReactSearchBox extends Component {
     }
 
     /**
-     * Override defaultFuseConfigs with fuseConfigs prop
+     this.Override defaultFuseConfigs with fuseConfigs prop
      */
-    const configs = Object.assign({}, defaultFuseConfigs, fuseConfigs)
+    const configs = Object.assign({}, this.defaultFuseConfigs, fuseConfigs)
 
     this.fuse = new Fuse(data, configs)
+  }
+
+  componentDidUpdate(prevProps) {
+    const { data, fuseConfigs } = this.props
+
+    if (prevProps.data !== data) {
+      /**
+       * Override defaultFuseConfigs with fuseConfigs prop
+       */
+      const configs = Object.assign({}, this.defaultFuseConfigs, fuseConfigs)
+
+      this.fuse = new Fuse(data, configs)
+    }
   }
 
   handleInputChange = e => {
