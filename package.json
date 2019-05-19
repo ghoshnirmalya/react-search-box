@@ -58,7 +58,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "^2.1.8",
-    "react-testing-library": "^6.0.0",
+    "react-testing-library": "^7.0.1",
     "rollup": "^1.11.3",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.2.1",
