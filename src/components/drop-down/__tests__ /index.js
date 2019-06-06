@@ -1,9 +1,9 @@
 import React from 'react'
-import { render, cleanup, fireEvent } from 'react-testing-library'
+import { render, cleanup, fireEvent } from '@testing-library/react'
 // this adds custom jest matchers from jest-dom
 import 'jest-dom/extend-expect'
 
-import ReactSearchBox from '../../'
+import ReactSearchBox from '../../../'
 
 // automatically unmount and cleanup DOM after the test is finished.
 afterEach(cleanup)

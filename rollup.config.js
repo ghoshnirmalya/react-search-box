@@ -41,5 +41,4 @@ export default {
       },
     }),
   ],
-  globals: { 'styled-components': 'styled' },
 }
