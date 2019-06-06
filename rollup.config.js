@@ -21,7 +21,7 @@ export default {
       sourcemap: true,
     },
   ],
-  external: ['stream'],
+  external: ['stream', 'styled-components'],
   plugins: [
     external(),
     url(),
@@ -41,4 +41,5 @@ export default {
       },
     }),
   ],
+  globals: { 'styled-components': 'styled' },
 }
