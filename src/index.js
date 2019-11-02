@@ -76,7 +76,7 @@ export default class ReactSearchBox extends Component {
      * 'matchedRecords' stores the items when the input box's value
      * matches with any item from the 'data' prop.
      */
-    value: '',
+    value: this.props.value ? this.props.value : '',
     matchedRecords: [],
   }
 

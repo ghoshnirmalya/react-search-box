@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, cleanup, fireEvent } from '@testing-library/react'
 // this adds custom jest matchers from jest-dom
-import 'jest-dom/extend-expect'
+import '@testing-library/jest-dom/extend-expect'
 
 import ReactSearchBox from '../../../'
 
