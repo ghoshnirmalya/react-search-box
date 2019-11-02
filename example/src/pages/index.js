@@ -99,6 +99,7 @@ class IndexPage extends Component {
           fuseConfigs={{
             threshold: 0.05,
           }}
+          value="John"
         />
       )
     }
