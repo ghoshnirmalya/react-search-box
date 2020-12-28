@@ -46,6 +46,7 @@ export default class ReactSearchBox extends Component {
     inputBoxBorderColor: PropTypes.string,
     inputBoxFontSize: PropTypes.string,
     inputBoxHeight: PropTypes.string,
+    inputBoxBackgroundColor: PropTypes.string,
     dropDownHoverColor: PropTypes.string,
     dropDownBorderColor: PropTypes.string,
   }
