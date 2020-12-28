@@ -23,6 +23,7 @@ class InputBox extends Component {
     inputBoxBorderColor: PropTypes.string,
     inputBoxFontSize: PropTypes.string,
     inputBoxHeight: PropTypes.string,
+    inputBoxBackgroundColor: PropTypes.string,
   }
 
   componentDidMount() {
@@ -44,6 +45,7 @@ class InputBox extends Component {
       inputBoxBorderColor,
       inputBoxFontSize,
       inputBoxHeight,
+      inputBoxBackgroundColor,
     } = this.props
 
     return (
@@ -60,6 +62,7 @@ class InputBox extends Component {
         inputBoxBorderColor={inputBoxBorderColor}
         inputBoxFontSize={inputBoxFontSize}
         inputBoxHeight={inputBoxHeight}
+        inputBoxBackgroundColor={inputBoxBackgroundColor}
       />
     )
   }
