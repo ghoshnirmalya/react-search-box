@@ -7,6 +7,7 @@ const StyledInput = styled.input`
   border: 1px solid ${props => props.inputBoxBorderColor};
   border-radius: 5px;
   color: ${props => props.inputBoxFontColor};
+  background-color: ${props => props.inputBoxBackgroundColor};
 
   &:focus {
     outline: none;
