@@ -76,6 +76,7 @@ export default class App extends Component {
 - `inputBoxBorderColor` - Color of the border of the input box.
 - `inputBoxFontSize` - Size of the font of the input box.
 - `inputBoxHeight` - Height of the input box.
+- `inputBoxBackgroundColor` - Background color of the input box.
 - `dropDownHoverColor` - Background color on hover of the dropdown list items.
 - `dropDownBorderColor` - Border color of the dropdown.
 
