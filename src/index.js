@@ -238,7 +238,7 @@ export default class ReactSearchBox extends Component {
     const { onSelect, onChange } = this.props
 
     this.setState({
-      value: value,
+      value,
       /**
        * Hide the dropdown once any dropdown item is clicked.
        */
