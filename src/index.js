@@ -34,6 +34,7 @@ export default class ReactSearchBox extends Component {
      * inputBoxHeight: Height of the input box.
      * dropDownHoverColor: Background color on hover of the dropdown list items.
      * dropDownBorderColor: Border color of the dropdown.
+     * clearOnSelect: Clear the input when a selection is made
      */
     placeholder: PropTypes.string,
     data: PropTypes.array.isRequired,
@@ -49,6 +50,7 @@ export default class ReactSearchBox extends Component {
     inputBoxBackgroundColor: PropTypes.string,
     dropDownHoverColor: PropTypes.string,
     dropDownBorderColor: PropTypes.string,
+    clearOnSelect: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -70,6 +72,7 @@ export default class ReactSearchBox extends Component {
     inputBoxHeight: '40px',
     dropDownHoverColor: '#ccc',
     dropDownBorderColor: '#cacaca96',
+    clearOnSelect: false,
   }
 
   state = {
@@ -225,7 +228,13 @@ export default class ReactSearchBox extends Component {
      * The 'value' state is updated with the clicked record's value.
      */
 
-    const { value } = record
+    let {value} = record;
+
+    if(this.props.clearOnSelect) {
+      // clear the value rather than input it into the box
+      value = "";
+    }
+
     const { onSelect, onChange } = this.props
 
     this.setState({
