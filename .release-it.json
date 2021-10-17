@@ -7,7 +7,7 @@
     "release": true
   },
   "npm": {
-    "publish": false,
+    "publish": true,
     "skipChecks": true
   },
   "plugins": {
