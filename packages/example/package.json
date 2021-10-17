@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@react-search-box/example",
-  "version": "0.0.1",
+  "version": "2.0.3-next.0",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

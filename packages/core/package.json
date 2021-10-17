@@ -1,7 +1,7 @@
 {
-  "private": true,
+  "private": false,
   "name": "@react-search-box/core",
-  "version": "0.0.1",
+  "version": "2.0.3-next.0",
   "files": [
     "dist"
   ],
