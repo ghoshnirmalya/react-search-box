@@ -1,12 +1,13 @@
 {
   "git": {
+    "requireCleanWorkingDir": false,
     "commitMessage": "chore: release v${version}"
   },
   "github": {
     "release": true
   },
   "npm": {
-    "publish": true,
+    "publish": false,
     "skipChecks": true
   },
   "plugins": {
