@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "@react-search-box/example",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@react-search-box/core": "*",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.1"
+  }
+}
