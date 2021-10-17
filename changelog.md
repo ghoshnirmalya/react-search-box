@@ -1,3 +1,5 @@
+## [2.0.3-next.1](https://github.com/ghoshnirmalya/react-search-box/compare/v2.0.3-next.0...v2.0.3-next.1) (2021-10-17)
+
 ## [2.0.3-next.0](https://github.com/ghoshnirmalya/react-search-box/compare/v2...v2.0.3-next.0) (2021-10-17)
 
 ### Bug Fixes
