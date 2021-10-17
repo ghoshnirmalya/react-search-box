@@ -1,3 +1,5 @@
+## [2.0.3](https://github.com/ghoshnirmalya/react-search-box/compare/v2.0.3-next.3...v2.0.3) (2021-10-17)
+
 ## [2.0.3-next.3](https://github.com/ghoshnirmalya/react-search-box/compare/v2.0.3-next.1...v2.0.3-next.3) (2021-10-17)
 
 ## [2.0.3-next.2](https://github.com/ghoshnirmalya/react-search-box/compare/v2.0.3-next.1...v2.0.3-next.2) (2021-10-17)
