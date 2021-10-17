@@ -1,22 +1,12 @@
 {
-  "private": true,
   "name": "react-search-box",
   "version": "2.0.3-next.0",
   "description": "An autocomplete search box for ReactJS",
   "author": "ghoshnirmalya",
   "license": "MIT",
   "repository": "ghoshnirmalya/react-search-box",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "bootstrap": "lerna bootstrap",
-    "build": "lerna run build --stream --parallel",
-    "clean": "lerna clean -y",
-    "dev": "lerna run dev --stream --parallel",
-    "export": "lerna run export --stream --parallel",
     "release": "release-it",
-    "serve": "lerna run serve --stream --parallel",
     "prepare": "husky install",
     "precommit": "lint-staged"
   },
@@ -30,7 +20,6 @@
     "@types/styled-components": "^5.1.15",
     "@vitejs/plugin-react": "^1.0.4",
     "husky": "^7.0.0",
-    "lerna": "^4.0.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.2.1",
     "release-it": "^14.2.2",
