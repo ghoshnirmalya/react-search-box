@@ -3,11 +3,6 @@
 ### Bug Fixes
 
 - **doc:** Adds missing code to readme ([ab6d2e6](https://github.com/ghoshnirmalya/react-search-box/commit/ab6d2e67cb8ba8ec31ce642ac0fce2c71cf66c78))
-
-## [2.0.3-beta.0](https://github.com/ghoshnirmalya/react-search-box/compare/v2...v2.0.3-beta.0) (2021-10-17)
-
-### Bug Fixes
-
 - **doc:** Adds missing code to readme ([ab6d2e6](https://github.com/ghoshnirmalya/react-search-box/commit/ab6d2e67cb8ba8ec31ce642ac0fce2c71cf66c78))
 
 ## [2.0.2](https://github.com/ghoshnirmalya/react-search-box/compare/v2...v2.0.3-beta.0) (2019-11-02)
