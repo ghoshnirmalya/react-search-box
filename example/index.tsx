@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ReactSearchBox from "@react-search-box/core";
+import ReactSearchBox from "../src";
 
 ReactDOM.render(
   <React.StrictMode>
