@@ -1,5 +1,7 @@
 ![react search box](https://user-images.githubusercontent.com/6391763/50571850-21a4f080-0dda-11e9-9370-ac16c4e93746.png)
 
+[![Edit react-search-box-example (CRA)](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-search-box-example-cra-17ml6?fontsize=14&hidenavigation=1&theme=dark)
+
 ### Installation
 
 ```sh
