@@ -4,7 +4,7 @@ export const tsup: Options = {
   splitting: true,
   sourcemap: true,
   clean: false,
-  entryPoints: ["src/core/index.tsx"],
+  entryPoints: ["src/index.tsx"],
   dts: true,
   format: [],
 };

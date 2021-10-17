@@ -15,14 +15,14 @@
   },
   "typings": "dist/index.d.ts",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build && tsup",
-    "serve": "vite preview"
+    "build": "tsc && vite build && tsup"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "dependencies": {
     "fuse.js": "^6.4.6",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "styled-components": "^5.3.1"
   }
 }

@@ -1,7 +1,11 @@
 {
   "private": true,
-  "name": "reach-search-box",
-  "version": "0.0.1",
+  "name": "react-search-box",
+  "version": "2.0.3-next.0",
+  "description": "An autocomplete search box for ReactJS",
+  "author": "ghoshnirmalya",
+  "license": "MIT",
+  "repository": "ghoshnirmalya/react-search-box",
   "workspaces": [
     "packages/*"
   ],

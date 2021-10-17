@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/core/index.tsx"),
+      entry: path.resolve(__dirname, "src/index.tsx"),
       name: "ReactSearchBox",
       fileName: (format) => `react-search-box.${format}.js`,
     },
