@@ -5,7 +5,10 @@
   "github": {
     "release": true
   },
-  "npm": false,
+  "npm": {
+    "publish": true,
+    "skipChecks": true
+  },
   "plugins": {
     "@release-it/conventional-changelog": {
       "preset": "angular",
@@ -13,7 +16,6 @@
     }
   },
   "hooks": {
-    "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
-    "after:bump": "echo module.exports = {version: \"'\"${version}\"'\"} > $(git rev-parse --show-toplevel)/VERSION"
+    "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   }
 }
