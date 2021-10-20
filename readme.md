@@ -1,6 +1,10 @@
-![react search box](https://user-images.githubusercontent.com/6391763/50571850-21a4f080-0dda-11e9-9370-ac16c4e93746.png)
+<span align="center">
+  
+  ![react search box](https://user-images.githubusercontent.com/6391763/50571850-21a4f080-0dda-11e9-9370-ac16c4e93746.png)
+  
+  ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-search-box?style=for-the-badge) ![NPM](https://img.shields.io/npm/l/react-search-box?style=for-the-badge) ![npm](https://img.shields.io/npm/v/react-search-box?style=for-the-badge) ![npm](https://img.shields.io/npm/dw/react-search-box?style=for-the-badge) <a href="https://codesandbox.io/s/react-search-box-example-cra-17ml6?fontsize=14&hidenavigation=1&theme=dark" target="_blank">![Edit on Codesandbox](https://img.shields.io/badge/demo-Edit%20on%20Codesandbox-2385f7?style=for-the-badge&logo=codesandbox)</a>
 
-[![Edit react-search-box-example (CRA)](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-search-box-example-cra-17ml6?fontsize=14&hidenavigation=1&theme=dark)
+</span>
 
 ### Installation
 
