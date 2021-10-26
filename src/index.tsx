@@ -1,5 +1,5 @@
 import Fuse from "fuse.js";
-import React, { ChangeEvent, FC, useState } from "react";
+import React, { ChangeEvent, FC, ReactNode, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import Dropdown from "./dropdown";
 import InputBox from "./input";
@@ -33,6 +33,8 @@ interface IProps {
   dropdownHoverColor?: string;
   dropdownBorderColor?: string;
   clearOnSelect?: boolean;
+  leftIcon?: ReactNode;
+  iconBoxSize?: number | string;
 }
 
 const ReactSearchBox: FC<IProps> = ({
@@ -51,6 +53,8 @@ const ReactSearchBox: FC<IProps> = ({
   dropdownHoverColor = "#ccc",
   dropdownBorderColor = "#cacaca96",
   clearOnSelect = false,
+  leftIcon,
+  iconBoxSize = "24px",
 }) => {
   const [matchedRecords, setMatchedRecords] = useState<any>([]);
   const [value, setValue] = useState<string>("");
@@ -155,6 +159,8 @@ const ReactSearchBox: FC<IProps> = ({
         inputFontSize={inputFontSize}
         inputHeight={inputHeight}
         inputBackgroundColor={inputBackgroundColor}
+        leftIcon={leftIcon}
+        iconBoxSize={iconBoxSize}
       />
     );
   };

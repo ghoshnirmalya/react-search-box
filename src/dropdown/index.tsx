@@ -1,5 +1,5 @@
 import { FC } from "react";
-import StyledDropDown from "./styles";
+import { StyledDropdown } from "./styles";
 
 interface IProps {
   onClick: any;
@@ -22,7 +22,7 @@ const Dropdown: FC<IProps> = ({
   dropdownHoverColor,
 }) => {
   return (
-    <StyledDropDown
+    <StyledDropdown
       className="react-search-box-dropdown"
       dropdownHoverColor={dropdownHoverColor}
       dropdownBorderColor={dropdownBorderColor}
@@ -40,7 +40,7 @@ const Dropdown: FC<IProps> = ({
           );
         })}
       </ul>
-    </StyledDropDown>
+    </StyledDropdown>
   );
 };
 

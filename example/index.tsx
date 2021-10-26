@@ -34,6 +34,8 @@ ReactDOM.render(
       }}
       onChange={(value) => console.log(value)}
       autoFocus
+      leftIcon={<>🎨</>}
+      iconBoxSize="48px"
     />
   </React.StrictMode>,
   document.getElementById("root")

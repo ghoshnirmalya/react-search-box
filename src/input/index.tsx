@@ -1,5 +1,9 @@
-import { FC, useEffect, useRef } from "react";
-import StyledInput from "./styles";
+import { FC, ReactNode, useEffect, useRef } from "react";
+import {
+  StyledInput,
+  StyledIconContainer,
+  StyledInputContainer,
+} from "./styles";
 
 /**
  * placeholder: The placeholder text for the input box.
@@ -22,6 +26,8 @@ interface IProps {
   inputHeight: string;
   inputBackgroundColor: string;
   autoFocus: boolean;
+  leftIcon?: ReactNode;
+  iconBoxSize: number | string;
 }
 
 const Input: FC<IProps> = ({
@@ -35,6 +41,8 @@ const Input: FC<IProps> = ({
   inputHeight,
   inputBackgroundColor,
   autoFocus,
+  leftIcon,
+  iconBoxSize,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -45,20 +53,37 @@ const Input: FC<IProps> = ({
     !!autoFocus && inputRef.current?.focus();
   }, []);
 
+  const leftIconNode = () => {
+    if (!leftIcon) {
+      return null;
+    }
+
+    return (
+      <StyledIconContainer iconBoxSize={iconBoxSize} inputHeight={inputHeight}>
+        {leftIcon}
+      </StyledIconContainer>
+    );
+  };
+
   return (
-    <StyledInput
-      type="text"
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-      onFocus={onFocus}
-      ref={inputRef}
-      inputFontColor={inputFontColor}
-      inputBorderColor={inputBorderColor}
-      inputFontSize={inputFontSize}
-      inputHeight={inputHeight}
-      inputBackgroundColor={inputBackgroundColor}
-    />
+    <StyledInputContainer>
+      <StyledInput
+        type="text"
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        onFocus={onFocus}
+        ref={inputRef}
+        inputFontColor={inputFontColor}
+        inputBorderColor={inputBorderColor}
+        inputFontSize={inputFontSize}
+        inputHeight={inputHeight}
+        inputBackgroundColor={inputBackgroundColor}
+        leftIcon={leftIcon}
+        iconBoxSize={iconBoxSize}
+      />
+      {leftIconNode()}
+    </StyledInputContainer>
   );
 };
 
