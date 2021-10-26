@@ -33,6 +33,7 @@ ReactDOM.render(
         console.log("This function is called when is focussed");
       }}
       onChange={(value) => console.log(value)}
+      autoFocus
     />
   </React.StrictMode>,
   document.getElementById("root")

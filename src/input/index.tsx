@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useRef } from "react";
 import StyledInput from "./styles";
 
 /**
@@ -36,11 +36,13 @@ const Input: FC<IProps> = ({
   inputBackgroundColor,
   autoFocus,
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     /**
      * Focusses on the input box if the autoFocus prop is true.
      */
-    // !!autoFocus && this.input.focus();
+    !!autoFocus && inputRef.current?.focus();
   }, []);
 
   return (
@@ -50,9 +52,7 @@ const Input: FC<IProps> = ({
       value={value}
       onChange={onChange}
       onFocus={onFocus}
-      // ref={(input) => {
-      //   this.input = input;
-      // }}
+      ref={inputRef}
       inputFontColor={inputFontColor}
       inputBorderColor={inputBorderColor}
       inputFontSize={inputFontSize}
