@@ -1,3 +1,13 @@
+# [2.1.0](https://github.com/ghoshnirmalya/react-search-box/compare/v2.0.3...v2.1.0) (2021-10-26)
+
+### Bug Fixes
+
+- fixes autofocus ref ([37d0b0d](https://github.com/ghoshnirmalya/react-search-box/commit/37d0b0dceecd6dbabada3f4d87ff2995c4c02271))
+
+### Features
+
+- adds option to add icons on the left ([70bbb68](https://github.com/ghoshnirmalya/react-search-box/commit/70bbb68dcbc2a08423816c1b42d25993d1dca04e))
+
 ## [2.0.3](https://github.com/ghoshnirmalya/react-search-box/compare/v2.0.3-next.3...v2.0.3) (2021-10-17)
 
 ## [2.0.3-next.3](https://github.com/ghoshnirmalya/react-search-box/compare/v2.0.3-next.1...v2.0.3-next.3) (2021-10-17)
