@@ -1,3 +1,9 @@
+## [2.1.1](https://github.com/ghoshnirmalya/react-search-box/compare/v2.1.0...v2.1.1) (2021-10-27)
+
+### Bug Fixes
+
+- adds prepublishOnly script ([e734036](https://github.com/ghoshnirmalya/react-search-box/commit/e734036eb756fb2d31a75b26f59339498b9a56e9))
+
 # [2.1.0](https://github.com/ghoshnirmalya/react-search-box/compare/v2.0.3...v2.1.0) (2021-10-26)
 
 ### Bug Fixes
