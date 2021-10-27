@@ -23,7 +23,8 @@
     "precommit": "lint-staged",
     "dev": "vite",
     "build": "tsc && vite build && tsup",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "prepublishOnly": "yarn build"
   },
   "dependencies": {
     "react": "^17.0.2",
