@@ -176,9 +176,9 @@ const ReactSearchBox: FC<IProps> = ({
     if (clearOnSelect) {
       // clear the value rather than input it into the box
       setValue("");
+    } else {
+      setValue(record.item.value);
     }
-
-    setValue(record.item.value);
 
     /**
      * Hide the dropdown once any dropdown item is clicked.
