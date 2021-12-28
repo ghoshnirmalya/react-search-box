@@ -67,7 +67,7 @@ export default class App extends Component {
 | data                    | An array of objects which acts as the source of data for the dropdown. This prop is required                     |
 | fuseConfigs             | Configs to override default Fuse configs                                                                         |
 | autoFocus               | Focus on the input box once the component is mounted                                                             |
-| clearOnSelect           | Clear the input value when any record is selected
+| clearOnSelect           | Clear the input value when any record is selected                                                                |
 | onSelect                | A function which acts as a callback when any record is selected. It is triggered once a dropdown item is clicked |
 | onFocus                 | A function which acts as a callback when the input is focussed                                                   |
 | onChange                | A function which acts as a callback when the input value is changed                                              |
