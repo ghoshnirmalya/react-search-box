@@ -86,7 +86,7 @@ export default class App extends Component {
 
 - [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 - [Fuse](http://fusejs.io/) - Lightweight fuzzy-search library. Zero dependencies.
-- [styled components](https://www.styled-components.com/) - Visual primitives for the component age.
+- [Styled components](https://www.styled-components.com/) - Visual primitives for the component age.
 
 ## License
 
