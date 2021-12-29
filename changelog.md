@@ -1,3 +1,9 @@
+# [2.2.0](https://github.com/ghoshnirmalya/react-search-box/compare/v2.1.1...v2.2.0) (2021-12-29)
+
+### Features
+
+- adds 'type' prop ([175fb98](https://github.com/ghoshnirmalya/react-search-box/commit/175fb9803742a20b524fb7aa94b54b2cc05c2543))
+
 ## [2.1.2](https://github.com/ghoshnirmalya/react-search-box/compare/v2.1.1...v2.1.2) (2021-12-28)
 
 ## [2.1.1](https://github.com/ghoshnirmalya/react-search-box/compare/v2.1.0...v2.1.1) (2021-10-27)
