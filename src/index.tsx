@@ -18,23 +18,78 @@ const StyledContainer = styled.div`
 type Record = { item: { key: string; value: string } };
 
 interface IProps {
+  /*
+   * The placeholder text for the input box.
+   */
   placeholder: string;
+  /*
+   * An array of objects which acts as the source of data for the dropdown. This prop is required.
+   */
   data: { key: string; value: string }[];
+  /*
+   * Configs to override default Fuse configs.
+   */
   fuseConfigs?: {};
+  /*
+   * Focus on the input box once the component is mounted.
+   */
   autoFocus?: boolean;
+  /*
+   * A function which acts as a callback when any record is selected. It is triggered once a dropdown item is clicked.
+   */
   onSelect: (record: Record) => void;
+  /*
+   * A function which acts as a callback when the input is focussed.
+   */
   onFocus?: () => void;
+  /*
+   * A function which acts as a callback when the input value is changed.
+   */
   onChange: (value: string) => void;
+  /*
+   * Color of the text in the input box.
+   */
   inputFontColor?: string;
+  /*
+   * Color of the border of the input box.
+   */
   inputBorderColor?: string;
+  /*
+   * Size of the font of the input box.
+   */
   inputFontSize?: string;
+  /*
+   * Height of the input box.
+   */
   inputHeight?: string;
+  /*
+   * Background color of the input box.
+   */
   inputBackgroundColor?: string;
+  /*
+   * Background color on hover of the dropdown list items.
+   */
   dropdownHoverColor?: string;
+  /*
+   * Border color of the dropdown.
+   */
   dropdownBorderColor?: string;
+  /*
+   * Clear the input value when any record is selected.
+   */
   clearOnSelect?: boolean;
+  /*
+   * Icon to be rendered on the left of the input box.
+   */
   leftIcon?: ReactNode;
+  /*
+   * The size of the icon (based on the leftIcon prop).
+   */
   iconBoxSize?: number | string;
+  /*
+   * The type of the input.
+   */
+  type?: string;
 }
 
 const ReactSearchBox: FC<IProps> = ({
@@ -55,6 +110,7 @@ const ReactSearchBox: FC<IProps> = ({
   clearOnSelect = false,
   leftIcon,
   iconBoxSize = "24px",
+  type = "text",
 }) => {
   const [matchedRecords, setMatchedRecords] = useState<any>([]);
   const [value, setValue] = useState<string>("");
@@ -161,6 +217,7 @@ const ReactSearchBox: FC<IProps> = ({
         inputBackgroundColor={inputBackgroundColor}
         leftIcon={leftIcon}
         iconBoxSize={iconBoxSize}
+        type={type}
       />
     );
   };

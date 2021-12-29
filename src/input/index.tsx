@@ -5,16 +5,6 @@ import {
   StyledInputContainer,
 } from "./styles";
 
-/**
- * placeholder: The placeholder text for the input box.
- * value: The value of the input box.
- * onChange: A function which acts as a callback when the input value is changed.
- * onFocus: A function which acts as a callback when the input is focussed.
- * inputFontColor: Color of the text in the input box.
- * inputBorderColor: Color of the border of the input box.
- * inputFontSize: Size of the font of the input box.
- * inputHeight: Height of the input box.
- */
 interface IProps {
   placeholder: string;
   value: string;
@@ -28,6 +18,7 @@ interface IProps {
   autoFocus: boolean;
   leftIcon?: ReactNode;
   iconBoxSize: number | string;
+  type: string;
 }
 
 const Input: FC<IProps> = ({
@@ -43,6 +34,7 @@ const Input: FC<IProps> = ({
   autoFocus,
   leftIcon,
   iconBoxSize,
+  type,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -68,7 +60,7 @@ const Input: FC<IProps> = ({
   return (
     <StyledInputContainer>
       <StyledInput
-        type="text"
+        type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
