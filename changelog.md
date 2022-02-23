@@ -1,3 +1,9 @@
+## [2.2.1](https://github.com/ghoshnirmalya/react-search-box/compare/v2.2.0...v2.2.1) (2022-02-23)
+
+### Bug Fixes
+
+- closes dropdown when clicked outside ([c6d00cf](https://github.com/ghoshnirmalya/react-search-box/commit/c6d00cf7c921ffd364e4788caf95a28817560c7b))
+
 # [2.2.0](https://github.com/ghoshnirmalya/react-search-box/compare/v2.1.1...v2.2.0) (2021-12-29)
 
 ### Features
