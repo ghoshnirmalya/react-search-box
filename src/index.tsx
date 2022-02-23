@@ -1,7 +1,8 @@
 import Fuse from "fuse.js";
-import React, { ChangeEvent, FC, ReactNode, useState } from "react";
+import React, { ChangeEvent, FC, ReactNode, useRef, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import Dropdown from "./dropdown";
+import useOutsideClick from "./hooks/use-outside-click";
 import InputBox from "./input";
 
 const GlobalStyle = createGlobalStyle`
@@ -115,6 +116,9 @@ const ReactSearchBox: FC<IProps> = ({
   const [matchedRecords, setMatchedRecords] = useState<any>([]);
   const [value, setValue] = useState<string>("");
   const [showDropdown, setDropdownVisibility] = useState<boolean>(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useOutsideClick(wrapperRef, setDropdownVisibility, setValue);
 
   /**
    * These configs are from Fuse plugin. Check out http://fusejs.io/
@@ -279,11 +283,13 @@ const ReactSearchBox: FC<IProps> = ({
   };
 
   return (
-    <StyledContainer>
-      <GlobalStyle />
-      {inputNode()}
-      {dropdownNode()}
-    </StyledContainer>
+    <div ref={wrapperRef}>
+      <StyledContainer>
+        <GlobalStyle />
+        {inputNode()}
+        {dropdownNode()}
+      </StyledContainer>
+    </div>
   );
 };
 
