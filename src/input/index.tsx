@@ -24,6 +24,7 @@ interface IProps {
 
 const Input: FC<IProps> = ({
   placeholder,
+  name,
   value,
   onChange,
   onFocus,
@@ -63,6 +64,7 @@ const Input: FC<IProps> = ({
       <StyledInput
         type={type}
         placeholder={placeholder}
+        name={name}
         value={value}
         onChange={onChange}
         onFocus={onFocus}
