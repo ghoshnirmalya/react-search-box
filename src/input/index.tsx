@@ -7,6 +7,7 @@ import {
 
 interface IProps {
   placeholder: string;
+  name: string;
   value: string;
   onChange: any;
   onFocus: any;
@@ -23,6 +24,7 @@ interface IProps {
 
 const Input: FC<IProps> = ({
   placeholder,
+  name,
   value,
   onChange,
   onFocus,
@@ -62,6 +64,7 @@ const Input: FC<IProps> = ({
       <StyledInput
         type={type}
         placeholder={placeholder}
+        name={name}
         value={value}
         onChange={onChange}
         onFocus={onFocus}
