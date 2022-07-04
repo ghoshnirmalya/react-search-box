@@ -99,6 +99,7 @@ interface IProps {
 
 const ReactSearchBox: FC<IProps> = ({
   placeholder = "",
+  name = "",
   data = [],
   fuseConfigs,
   autoFocus = false,
@@ -214,6 +215,7 @@ const ReactSearchBox: FC<IProps> = ({
     return (
       <InputBox
         placeholder={placeholder}
+        name={name}
         value={value}
         onChange={handleInputChange}
         autoFocus={autoFocus ? autoFocus : false}
