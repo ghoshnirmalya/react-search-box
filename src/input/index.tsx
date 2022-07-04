@@ -7,6 +7,7 @@ import {
 
 interface IProps {
   placeholder: string;
+  name: string;
   value: string;
   onChange: any;
   onFocus: any;
