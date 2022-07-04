@@ -24,6 +24,10 @@ interface IProps {
    */
   placeholder: string;
   /*
+   * The name attribute for the input box.
+   */
+  name?: string;
+  /*
    * An array of objects which acts as the source of data for the dropdown. This prop is required.
    */
   data: { key: string; value: string }[];
