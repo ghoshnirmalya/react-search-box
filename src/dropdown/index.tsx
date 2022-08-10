@@ -32,6 +32,12 @@ const Dropdown: FC<IProps> = ({
           return (
             <li
               key={record.item.key}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (["Space", "Enter"].includes(e.code)) {
+                  onClick(record);
+                }
+              }}
               className="react-search-box-dropdown-list-item"
               onClick={() => onClick(record)}
             >
