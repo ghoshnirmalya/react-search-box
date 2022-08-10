@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useRef } from "react";
+import { FC, KeyboardEvent, ReactNode, useEffect, useRef } from "react";
 import {
   StyledInput,
   StyledIconContainer,
@@ -20,6 +20,7 @@ interface IProps {
   leftIcon?: ReactNode;
   iconBoxSize: number | string;
   type: string;
+  onKeyDown: (event: KeyboardEvent) => void;
 }
 
 const Input: FC<IProps> = ({
@@ -37,6 +38,7 @@ const Input: FC<IProps> = ({
   leftIcon,
   iconBoxSize,
   type,
+  onKeyDown,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -76,6 +78,7 @@ const Input: FC<IProps> = ({
         inputBackgroundColor={inputBackgroundColor}
         leftIcon={leftIcon}
         iconBoxSize={iconBoxSize}
+        onKeyDown={onKeyDown}
       />
       {leftIconNode()}
     </StyledInputContainer>

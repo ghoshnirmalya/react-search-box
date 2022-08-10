@@ -1,5 +1,12 @@
 import Fuse from "fuse.js";
-import React, { ChangeEvent, FC, ReactNode, useRef, useState } from "react";
+import React, {
+  ChangeEvent,
+  FC,
+  KeyboardEvent,
+  ReactNode,
+  useRef,
+  useState,
+} from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import Dropdown from "./dropdown";
 import useOutsideClick from "./hooks/use-outside-click";
@@ -212,6 +219,16 @@ const ReactSearchBox: FC<IProps> = ({
      * matches with the input, then that matched item appears in the dropdown.
      */
 
+    /**
+     * Enable quick trigger of `onSelect` by hitting `Enter` when there is only one found record displayed
+     */
+    const handleQuickSubmit = (e: KeyboardEvent) => {
+      if (matchedRecords.length === 1 && e.code === "Enter") {
+        e.preventDefault();
+        onSelect(matchedRecords[0]);
+      }
+    };
+
     return (
       <InputBox
         placeholder={placeholder}
@@ -227,6 +244,7 @@ const ReactSearchBox: FC<IProps> = ({
         inputBackgroundColor={inputBackgroundColor}
         leftIcon={leftIcon}
         iconBoxSize={iconBoxSize}
+        onKeyDown={handleQuickSubmit}
         type={type}
       />
     );
