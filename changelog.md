@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/ghoshnirmalya/react-search-box/compare/v2.2.1...v2.3.0) (2022-08-11)
+
+### Features
+
+- add focus navigation and keyboard submission ([9b7da97](https://github.com/ghoshnirmalya/react-search-box/commit/9b7da978ef8440377a0cfe136621440ad1fb45fb))
+- add quick submit ([c7a6a43](https://github.com/ghoshnirmalya/react-search-box/commit/c7a6a434c5cbec748ee962969aa7103abad39207))
+
 ## [2.2.1](https://github.com/ghoshnirmalya/react-search-box/compare/v2.2.0...v2.2.1) (2022-02-23)
 
 ### Bug Fixes
