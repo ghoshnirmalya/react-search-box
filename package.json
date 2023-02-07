@@ -1,6 +1,6 @@
 {
   "name": "react-search-box",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "description": "An autocomplete search box for ReactJS",
   "license": "MIT",
   "author": "ghoshnirmalya",
@@ -21,6 +21,7 @@
   },
   "typings": "dist/index.d.ts",
   "dependencies": {
+    "@release-it/bumper": "^4.0.2",
     "fuse.js": "^6.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -29,7 +30,6 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
-    "@release-it/conventional-changelog": "^5.1.1",
     "@types/node": "^18.13.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",

@@ -4,16 +4,16 @@
     "commitMessage": "chore: release v${version}"
   },
   "github": {
-    "release": true
+    "release": true,
+    "web": true
   },
   "npm": {
     "publish": true,
     "skipChecks": true
   },
   "plugins": {
-    "@release-it/conventional-changelog": {
-      "preset": "angular",
-      "infile": "changelog.md"
+    "@release-it/bumper": {
+      "out": ["dist/package.json"]
     }
   },
   "hooks": {
