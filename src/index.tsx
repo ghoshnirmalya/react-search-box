@@ -91,6 +91,10 @@ interface IProps {
    */
   clearOnSelect?: boolean;
   /*
+   * Clear the input value when the component looses focus.
+   */
+  clearInput?: boolean;
+  /*
    * Icon to be rendered on the left of the input box.
    */
   leftIcon?: ReactNode;
@@ -121,6 +125,7 @@ const ReactSearchBox: FC<IProps> = ({
   dropdownHoverColor = "#ccc",
   dropdownBorderColor = "#cacaca96",
   clearOnSelect = false,
+  clearInput = false,
   leftIcon,
   iconBoxSize = "24px",
   type = "text",
@@ -130,7 +135,7 @@ const ReactSearchBox: FC<IProps> = ({
   const [showDropdown, setDropdownVisibility] = useState<boolean>(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  useOutsideClick(wrapperRef, setDropdownVisibility, setValue);
+  useOutsideClick(wrapperRef, setDropdownVisibility, setValue, clearInput);
 
   /**
    * These configs are from Fuse plugin. Check out http://fusejs.io/
@@ -231,6 +236,7 @@ const ReactSearchBox: FC<IProps> = ({
 
     return (
       <InputBox
+        clearInput={clearInput}
         placeholder={placeholder}
         name={name}
         value={value}

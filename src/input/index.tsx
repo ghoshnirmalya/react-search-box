@@ -19,6 +19,7 @@ interface IProps {
   autoFocus: boolean;
   leftIcon?: ReactNode;
   iconBoxSize: number | string;
+  clearInput: boolean;
   type: string;
   onKeyDown: (event: KeyboardEvent) => void;
 }

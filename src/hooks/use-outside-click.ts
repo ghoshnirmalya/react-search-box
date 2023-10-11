@@ -3,13 +3,14 @@ import { Dispatch, RefObject, SetStateAction, useEffect } from "react";
 const useOutsideClick = (
   ref: RefObject<HTMLDivElement>,
   setDropdownVisibility: Dispatch<SetStateAction<boolean>>,
-  setValue: Dispatch<SetStateAction<string>>
+  setValue: Dispatch<SetStateAction<string>>,
+  clearInput: boolean
 ) => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
         setDropdownVisibility(false);
-        setValue("");
+        clearInput ? setValue("") : undefined;
       }
     };
 
