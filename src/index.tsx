@@ -91,6 +91,10 @@ interface IProps {
    */
   clearOnSelect?: boolean;
   /*
+   * Clear the input value when the component looses focus.
+   */
+  clearInput?: boolean;
+  /*
    * Icon to be rendered on the left of the input box.
    */
   leftIcon?: ReactNode;
@@ -232,6 +236,7 @@ const ReactSearchBox: FC<IProps> = ({
 
     return (
       <InputBox
+        clearInput={clearInput}
         placeholder={placeholder}
         name={name}
         value={value}

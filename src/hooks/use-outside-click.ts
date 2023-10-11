@@ -4,7 +4,7 @@ const useOutsideClick = (
   ref: RefObject<HTMLDivElement>,
   setDropdownVisibility: Dispatch<SetStateAction<boolean>>,
   setValue: Dispatch<SetStateAction<string>>,
-  clearInput: Boolean
+  clearInput: boolean
 ) => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
