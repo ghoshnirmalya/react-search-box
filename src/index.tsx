@@ -4,6 +4,7 @@ import React, {
   FC,
   KeyboardEvent,
   ReactNode,
+  useEffect,
   useRef,
   useState,
 } from "react";
@@ -26,6 +27,10 @@ const StyledContainer = styled.div`
 type Record = { item: { key: string; value: string } };
 
 interface IProps {
+  /*
+   * The value, if the component is controlled externally.
+   */
+  state?: string;
   /*
    * The placeholder text for the input box.
    */
@@ -109,6 +114,7 @@ interface IProps {
 }
 
 const ReactSearchBox: FC<IProps> = ({
+  state = "",
   placeholder = "",
   name = "",
   data = [],
@@ -134,6 +140,10 @@ const ReactSearchBox: FC<IProps> = ({
   const [value, setValue] = useState<string>("");
   const [showDropdown, setDropdownVisibility] = useState<boolean>(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (state) setValue(state);
+  }, [state]);
 
   useOutsideClick(wrapperRef, setDropdownVisibility, setValue, clearInput);
 
