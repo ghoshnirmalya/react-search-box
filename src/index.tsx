@@ -144,7 +144,7 @@ const ReactSearchBox: FC<IProps> = (props) => {
 
   useMemo(() => {
     setValue(state);
-  }, [...(props as any)]);
+  }, [props]);
 
   useOutsideClick(wrapperRef, setDropdownVisibility, setValue, clearInput);
 
