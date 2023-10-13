@@ -143,7 +143,7 @@ const ReactSearchBox: FC<IProps> = ({
 
   useEffect(() => {
     if (state !== value) setValue(state);
-  }, [state]);
+  }, []);
 
   useOutsideClick(wrapperRef, setDropdownVisibility, setValue, clearInput);
 
