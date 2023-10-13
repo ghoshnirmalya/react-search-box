@@ -4,7 +4,7 @@ import React, {
   FC,
   KeyboardEvent,
   ReactNode,
-  useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -141,9 +141,9 @@ const ReactSearchBox: FC<IProps> = ({
   const [showDropdown, setDropdownVisibility] = useState<boolean>(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (state !== value) setValue(state);
-  }, []);
+  useMemo(() => {
+    setValue(state);
+  }, [state]);
 
   useOutsideClick(wrapperRef, setDropdownVisibility, setValue, clearInput);
 
