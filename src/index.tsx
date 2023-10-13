@@ -113,29 +113,30 @@ interface IProps {
   type?: string;
 }
 
-const ReactSearchBox: FC<IProps> = ({
-  state = "",
-  placeholder = "",
-  name = "",
-  data = [],
-  fuseConfigs,
-  autoFocus = false,
-  onSelect,
-  onFocus,
-  onChange,
-  inputBackgroundColor = "#fff",
-  inputFontColor = "#000",
-  inputBorderColor = "#cacaca96",
-  inputFontSize = "14px",
-  inputHeight = "40px",
-  dropdownHoverColor = "#ccc",
-  dropdownBorderColor = "#cacaca96",
-  clearOnSelect = false,
-  clearInput = false,
-  leftIcon,
-  iconBoxSize = "24px",
-  type = "text",
-}) => {
+const ReactSearchBox: FC<IProps> = (props) => {
+  const {
+    state = "",
+    placeholder = "",
+    name = "",
+    data = [],
+    fuseConfigs,
+    autoFocus = false,
+    onSelect,
+    onFocus,
+    onChange,
+    inputBackgroundColor = "#fff",
+    inputFontColor = "#000",
+    inputBorderColor = "#cacaca96",
+    inputFontSize = "14px",
+    inputHeight = "40px",
+    dropdownHoverColor = "#ccc",
+    dropdownBorderColor = "#cacaca96",
+    clearOnSelect = false,
+    clearInput = false,
+    leftIcon,
+    iconBoxSize = "24px",
+    type = "text",
+  } = props;
   const [matchedRecords, setMatchedRecords] = useState<any>([]);
   const [value, setValue] = useState<string>("");
   const [showDropdown, setDropdownVisibility] = useState<boolean>(false);
@@ -143,7 +144,7 @@ const ReactSearchBox: FC<IProps> = ({
 
   useMemo(() => {
     setValue(state);
-  }, [state]);
+  }, [...(props as any)]);
 
   useOutsideClick(wrapperRef, setDropdownVisibility, setValue, clearInput);
 
