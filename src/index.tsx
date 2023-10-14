@@ -28,6 +28,10 @@ type Record = { item: { key: string; value: string } };
 
 interface IProps {
   /*
+   * The setter, if the component is controlled externally.
+   */
+  setState?: (value: string) => void;
+  /*
    * The value, if the component is controlled externally.
    */
   state?: string;
@@ -115,6 +119,7 @@ interface IProps {
 
 const ReactSearchBox: FC<IProps> = (props) => {
   const {
+    setState,
     state = "",
     placeholder = "",
     name = "",
@@ -138,13 +143,10 @@ const ReactSearchBox: FC<IProps> = (props) => {
     type = "text",
   } = props;
   const [matchedRecords, setMatchedRecords] = useState<any>([]);
+
   const [value, setValue] = useState<string>("");
   const [showDropdown, setDropdownVisibility] = useState<boolean>(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
-
-  useMemo(() => {
-    setValue(state);
-  }, [props]);
 
   useOutsideClick(wrapperRef, setDropdownVisibility, setValue, clearInput);
 
@@ -212,7 +214,11 @@ const ReactSearchBox: FC<IProps> = (props) => {
      * Update 'value' state with the value from the input box.
      * Update 'matchedRecords' state with the matched records from the data array.
      */
-    setValue(value);
+    if (state) {
+      setState!(value);
+    } else {
+      setValue(value);
+    }
     setMatchedRecords(matchedRecords);
 
     /**
@@ -250,7 +256,7 @@ const ReactSearchBox: FC<IProps> = (props) => {
         clearInput={clearInput}
         placeholder={placeholder}
         name={name}
-        value={value}
+        value={state ? state : value}
         onChange={handleInputChange}
         autoFocus={autoFocus ? autoFocus : false}
         onFocus={onFocus ? onFocus : undefined}
@@ -277,9 +283,9 @@ const ReactSearchBox: FC<IProps> = (props) => {
 
     if (clearOnSelect) {
       // clear the value rather than input it into the box
-      setValue("");
+      state ? setState!("") : setValue("");
     } else {
-      setValue(record.item.value);
+      state ? setState!(record.item.value) : setValue(record.item.value);
     }
 
     /**
