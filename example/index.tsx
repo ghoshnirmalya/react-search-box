@@ -39,6 +39,8 @@ root.render(
       autoFocus
       leftIcon={<>🎨</>}
       iconBoxSize="48px"
+      includeMatches={true}
+      highlightStyle={{ fontWeight: "bolder", backgroundColor: "yellow" }}
     />
   </React.StrictMode>
 );
