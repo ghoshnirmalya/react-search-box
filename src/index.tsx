@@ -1,5 +1,6 @@
 import Fuse from "fuse.js";
 import React, {
+  CSSProperties,
   ChangeEvent,
   FC,
   KeyboardEvent,
@@ -102,6 +103,17 @@ interface IProps {
    * The type of the input.
    */
   type?: string;
+
+  /*
+   * If return the matched ranges
+   */
+  includeMatches?: boolean;
+
+  /*
+   * the highlighted span's style
+   * only works if the includeMatches is true
+   */
+  highlightStyle?: CSSProperties;
 }
 
 const ReactSearchBox: FC<IProps> = ({
@@ -124,6 +136,8 @@ const ReactSearchBox: FC<IProps> = ({
   leftIcon,
   iconBoxSize = "24px",
   type = "text",
+  includeMatches = false,
+  highlightStyle,
 }) => {
   const [matchedRecords, setMatchedRecords] = useState<any>([]);
   const [value, setValue] = useState<string>("");
@@ -137,6 +151,7 @@ const ReactSearchBox: FC<IProps> = ({
    * for more details.
    */
   const defaultFuseConfigs = {
+    includeMatches: includeMatches,
     /**
      * At what point does the match algorithm give up. A threshold of 0.0
      * requires a perfect match (of both letters and location), a threshold
@@ -302,6 +317,7 @@ const ReactSearchBox: FC<IProps> = ({
         onClick={handleDropdownItemClick}
         dropdownHoverColor={dropdownHoverColor}
         dropdownBorderColor={dropdownBorderColor}
+        highlightStyle={highlightStyle}
       />
     );
   };
